@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Beltran_Practical_3_phone:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Beltran_Practical_3_phone_jar</output-path>
+    <root id="archive" name="Beltran_Practical_3_phone.jar">
+      <element id="module-output" name="Beltran_Practical_3_phone" />
+    </root>
+  </artifact>
+</component>
