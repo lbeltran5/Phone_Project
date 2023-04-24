@@ -23,13 +23,13 @@ Requirements for task #4
  
 Requirements for task #5
 - Add 5 interfaces to the existing hierarchy.
-            Where: apple,lg,nokia,sony, & phone ***CHECK***
+- ****Where: apple,lg,nokia,sony, & phone
 - Use polymorphism with the abstract class and interface from the hierarchy.
-            Where: connectToWifi() - Apple - Phone - Connectivity *****CHECK*****
+- ****Where: connectToWifi() - Apple - Phone - Connectivity
 - Create final class, method, variable.
-            Where: Xiaomi ****CHECK****
+- ****Where: Xiaomi
 - Create a static block, method, variable.
-            Where: Huawei ****CHECK****
+- *****Where: Huawei
 
 Requirements for task #6
 - Create 5 custom exceptions.
