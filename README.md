@@ -25,7 +25,7 @@ Requirements for task #5
 - Add 5 interfaces to the existing hierarchy.
             Where: apple,lg,nokia,sony, & phone ***CHECK***
 - Use polymorphism with the abstract class and interface from the hierarchy.
-            Where: connectToWifi() - Apple - Phone - Connectivity *****CHECk*****
+            Where: connectToWifi() - Apple - Phone - Connectivity *****CHECK*****
 - Create final class, method, variable.
             Where: Xiaomi ****CHECK****
 - Create a static block, method, variable.
@@ -37,6 +37,6 @@ Requirements for task #6
 - Use try-catch with resources.
 - Log messages to the console, file.
     
-  *** libraries of log4j could be downloaded manually from maven central.
+  ****libraries of log4j could be downloaded manually from maven central.
     here and here (you'll need both of them at the same time); add them to your project in IDE 
-    (e.g. sample of instruction for Intellj Idea) ***
+    (e.g. sample of instruction for Intellj Idea)****
