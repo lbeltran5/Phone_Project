@@ -51,6 +51,6 @@ public class Samsung extends Phone{
     // which this abstract method simply prints out a message indicating uniqueness feature for Smartphone
     @Override
     public void showFeature(){
-        System.out.println("Unique Feature: Video Call Effects");
+        System.out.println("Unique Feature: Video Call Effects; this is an abstract method");
     }
 }

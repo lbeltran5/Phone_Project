@@ -35,6 +35,6 @@ public class Motorola extends Phone{
 
     @Override
     public void showFeature(){
-        System.out.println("Unique Feature: Video Call Effects");
+        System.out.println("Unique Feature: OLED Display; this is an abstract method");
     }
 }

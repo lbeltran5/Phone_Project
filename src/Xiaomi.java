@@ -19,7 +19,7 @@ public final class Xiaomi extends Phone{
 
     @Override
     public void showFeature(){
-        System.out.println("Unique Feature: thin and light screen");
+        System.out.println("Unique Feature: thin and light screen; this is an abstract method");
         System.out.println("");
     }
 
@@ -37,5 +37,6 @@ public final class Xiaomi extends Phone{
     public void xiaomiFinalMethod(){
         System.out.println("This is a final method for Xiaomi! ");
         System.out.print("Xiaomi is my final class, it has a final variable 'xiaomiFeature', and final method");
+        System.out.println("");
     }
 }

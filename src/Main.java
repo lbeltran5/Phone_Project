@@ -1,34 +1,4 @@
-/*
- * (Practical #3) Create a class hierarchy. Topic for your hierarchy will be provided by your mentors.
- *          please request it in your chat with a mentor.
- *
- *                           *** SUBJECT: Phone ***
- *
- *  Requirements for task #3:
- *  - At least 10 classes **CHECK** Different types of brands **CHECK**
- *  - All classes must contain properties (minimum 1) **CHECK**
- *  - At least 5 private properties (in total, in any classes) **CHECK**
- *  - All private variables must have getters and setters. **CHECK**
- *  - All classes should have at least one custom constructor **CHECK**
- *  - Create separate class with main() which will instantiate objects of implemented classes. **CHECK**
- *
- *  Requirements for task #4
- *  - Use polymorphism with at least one abstract class. **CHECK**
- *  - Create and override at least one abstract method. **CHECK**
- *  - Use at protected modifier at least 5  **CHECK**
- *  - Override methods from class Object (toString(), hashcode(), equals())
- *    for at least 3 classes from the hierarchy. **CHECK**
- *
- *  Requirements for task #5
- *  - Add 5 interfaces to the existing hierarchy.
-            Where: apple,lg,nokia,sony, & phone ***CHECK***
- *  - Use polymorphism with the abstract class and interface from the hierarchy.
-            Where: connectToWifi() - Apple - Phone - Connectivity *****CHECk*****
- *  - Create final class, method, variable.
-            Where: Xiaomi ****CHECK****
- *  - Create a static block, method, variable.
- *          Where: Huawei ****CHECK****
- */
+
 
 // Importing scanner for user input
 import java.util.Scanner;
@@ -67,15 +37,16 @@ public class Main {
 
         // appleCell is instance of the Apple class which is subclass of Phone
         // This allows appleCell to be treated as Phone object and use methods and properties
-        //Phone appleCell = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
-                //6,1L, "Face ID feature", "Think different");
+        Phone appleCell = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
+                6,1L, "Face ID feature", "Think different");
+
         //Polymorphism with abstract class
-        //appleCell.displayPhoneSpecs();
+        appleCell.displayPhoneSpecs();
 
         //Polymorphism with the interface
-        //Connectivity appleConnectivity = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
-                //6,1L, "Face ID feature", "Think different");
-        //appleConnectivity.connectsToWifi();
+        Connectivity appleConnectivity = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
+                6,1L, "Face ID feature", "Think different");
+        appleConnectivity.connectsToWifi();
 
 
         // declaring and initializing string variables with slogans and different phones brands
@@ -91,57 +62,62 @@ public class Main {
         String nokiaSlogan = nokiaPhone.getNokiaMotto();
         String sonySlogan = sonyPhone.getSonyMotto();
 
-        // Using switch statements for user selection
+        // Using if, else if, and else statements for user selection
         if (BrandSelection == 1) {
-            System.out.println();
             //printing out the brand slogan by getting Samsung Motto method from Samsung Class
             System.out.println("Samsung Slogan:" + samsungSlogan);
             System.out.println();
+
             //printing out the title of specs
-            System.out.println("** SmartPhone Specifications **");
-            //displaying the phone specs by using the concrete method
-            samsungPhone.displayPhoneSpecs();
-            System.out.println();
+            System.out.println("*** SmartPhone Specifications using toString() ***");
             //displaying the override method using toString();
-            //System.out.println(samsungPhone.toString());
+            System.out.println(samsungPhone.toString());
 
             //displaying the brands feature by using the abstract method which is overridden from phone's class
             samsungPhone.showFeature();
+
         } else if (BrandSelection == 2) {
-            System.out.println();
             System.out.println("Apple Slogan:" + appleSlogan);
             System.out.println();
+
             System.out.println("** SmartPhone Specifications **");
+            //displaying the phone specs by using the concrete method
             applePhone.displayPhoneSpecs();
             System.out.println();
 
             //we are using the object "applePhone" to call the methods below which comes from
             // the Connectivity interfaces.
             applePhone.connectsToWifi();
+
         } else if (BrandSelection == 3) {
-            System.out.println();
             System.out.println("Xiaomi Slogan:" + xiaomiSlogan);
             System.out.println();
-            System.out.println("** SmartPhone Specifications **");
-            xiaomiPhone.displayPhoneSpecs();
+
+            //title for the specs on toString() method
+            System.out.println("*** SmartPhone Specifications using toString() ***");
+            System.out.println(xiaomiPhone.toString());
+
+            //calling an abstract method "showFeature()"
             xiaomiPhone.showFeature();
-            //print out a toString
-            //System.out.println(xiaomiPhone.toString());
 
             //final class, method, variable
             xiaomiPhone.xiaomiFinalMethod();
+
         } else if (BrandSelection == 4) {
-            System.out.println();
             System.out.println("Motorola Slogan:" + motorolaSlogan);
             System.out.println();
-            System.out.println("** SmartPhone Specifications **");
-            motorolaPhone.displayPhoneSpecs();
-            System.out.println();
+
+            //title for the specs on toString() method
+            System.out.println("*** SmartPhone Specifications using toString() ***");
             System.out.println(motorolaPhone.toString());
+
+            //calling an abstract method
+            motorolaPhone.showFeature();
+
         } else if (BrandSelection == 5) {
-            System.out.println();
             System.out.println("Huawei Slogan:" + huaweiSlogan);
             System.out.println();
+
             System.out.println("** SmartPhone Specifications **");
             huaweiPhone.displayPhoneSpecs();
 
@@ -149,36 +125,40 @@ public class Main {
             int count = Huawei.getCount();
             System.out.println("This is the static method for Huawei it counts the number of phones or objects created: " + count);
             System.out.println("Huawei has a static block, method, and static variable 'count'");
-        } else if (BrandSelection == 6) {
-            System.out.println();
+        }
+        else if (BrandSelection == 6) {
             System.out.println("LG Slogan:" + lgSlogan);
             System.out.println();
+
             System.out.println("** SmartPhone Specifications **");
             lgPhone.displayPhoneSpecs();
 
             //calling the interface method and printing out its message.
             System.out.println();
             lgPhone.connectsToWifi();
+
         } else if (BrandSelection == 7) {
-            System.out.println();
             System.out.println("Nokia Slogan:" + nokiaSlogan);
             System.out.println();
+
             System.out.println("** SmartPhone Specifications **");
             nokiaPhone.displayPhoneSpecs();
 
             //calling the interface method and printing out its message.
             System.out.println();
             nokiaPhone.connectsToWifi();
+
         } else if (BrandSelection == 8) {
-            System.out.println();
             System.out.println("Sony Slogan:" + sonySlogan);
             System.out.println();
+
             System.out.println("** SmartPhone Specifications **");
             sonyPhone.displayPhoneSpecs();
 
             //calling the interface method and printing out its message.
             System.out.println();
             sonyPhone.connectsToWifi();
+
         } else {
             System.out.println("Invalid selection. Please try again.");
         }
