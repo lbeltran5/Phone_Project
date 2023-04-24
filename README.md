@@ -8,12 +8,17 @@ Create a class hierarchy. Topic for your hierarchy will be provided by your ment
 
 Requirements for task #3:
 - At least 10 classes
-           **Different types of brands**
-- All classes must contain properties (minimum 1) **CHECK**
-- At least 5 private properties (in total, in any classes) **CHECK**
-- All private variables must have getters and setters. **CHECK**
-- All classes should have at least one custom constructor **CHECK**
-- Create separate class with main() which will instantiate objects of implemented classes. **CHECK**
+- **Different types of brands**
+- All classes must contain properties (minimum 1)
+- **Each phone brand contains unique feature**
+- At least 5 private properties (in total, in any classes)
+- **Each phone brand has private variable phoneMotto for brand slogan **
+- All private variables must have getters and setters.
+- **All classes contain getters and setter methods**
+- All classes should have at least one custom constructor
+- **Constructors for each class call different variables**
+- Create separate class with main() which will instantiate objects of implemented classes.
+- **CHECK**
  
 Requirements for task #4
 - Use polymorphism with at least one abstract class.
