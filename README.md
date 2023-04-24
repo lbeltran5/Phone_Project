@@ -4,7 +4,7 @@ Home Task Requirements #3 #4 #5 #6
 Create a class hierarchy. Topic for your hierarchy will be provided by your mentors.
            please request it in your chat with a mentor.
  
-                            *** SUBJECT: Phone ***
+                                       **** SUBJECT: Phone ****
 
 Requirements for task #3:
 - At least 10 classes **CHECK** Different types of brands **CHECK**
@@ -15,11 +15,14 @@ Requirements for task #3:
 - Create separate class with main() which will instantiate objects of implemented classes. **CHECK**
  
 Requirements for task #4
-- Use polymorphism with at least one abstract class. **CHECK**
-- Create and override at least one abstract method. **CHECK**
-- Use at protected modifier at least 5  **CHECK**
-- Override methods from class Object (toString(), hashcode(), equals())
-    for at least 3 classes from the hierarchy. **CHECK**
+- Use polymorphism with at least one abstract class.
+- ****Where: Apple class with Phone class multiple methods****
+- Create and override at least one abstract method.
+- ****Where: method showFeature() is abstract and overrides on Samsung****
+- Use at protected modifier at least 5
+- ****Where: Phone class uses 5 protected modifiers in its variables****
+- Override methods from class Object (toString(), hashcode(), equals()) for at least 3 classes from the hierarchy.
+- ****Where: Classes Samsung, Xiaomi, Motorola uses the toString() to override a method****
  
 Requirements for task #5
 - Add 5 interfaces to the existing hierarchy.
@@ -29,7 +32,7 @@ Requirements for task #5
 - Create final class, method, variable.
 - ****Where: Xiaomi****
 - Create a static block, method, variable.
-- *****Where: Huawei****
+- ****Where: Huawei****
 
 Requirements for task #6
 - Create 5 custom exceptions.
