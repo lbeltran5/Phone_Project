@@ -7,7 +7,8 @@ Create a class hierarchy. Topic for your hierarchy will be provided by your ment
                                        **** SUBJECT: Phone ****
 
 Requirements for task #3:
-- At least 10 classes **CHECK** Different types of brands **CHECK**
+- At least 10 classes
+           **Different types of brands**
 - All classes must contain properties (minimum 1) **CHECK**
 - At least 5 private properties (in total, in any classes) **CHECK**
 - All private variables must have getters and setters. **CHECK**
