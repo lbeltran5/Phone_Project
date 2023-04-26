@@ -1,4 +1,3 @@
-import javax.sql.ConnectionEventListener;
 
 public abstract class Phone implements Connectivity {
     // Fields
@@ -26,47 +25,58 @@ public abstract class Phone implements Connectivity {
         System.out.println("Speed: " + speed + " GHz");
         System.out.println("Storage Capacity: " + storageCapacity + " GB");
     }
+
     //** Getters and Setters methods for protected fields **//
 
     // for Model
     public String getModel(){
         return model;
     }
+/*
     public void setModel(String model){
         this.model = model;
     }
+*/
 
     // for OS Version and Type
     public String getOsVersionType(){
         return osVersionType;
     }
+/*
     public void setOsVersionType(String osVersionType){
         this.osVersionType = osVersionType;
     }
+*/
 
     //for Price
     public double getPrice(){
         return price;
     }
+/*
     public void setPrice(double price){
         this.price = price;
     }
+*/
 
     // for Speed
     public int getSpeed(){
         return speed;
     }
+/*
     public void setSpeed(int speed){
         this.speed = speed;
     }
+*/
 
     //for Storage Capacity
     public long getStorageCapacity() {
         return storageCapacity;
     }
+/*
     public void setStorageCapacity(long storageCapacity) {
         this.storageCapacity = storageCapacity;
     }
+*/
 
     // Abstract method
     public abstract void showFeature();
@@ -74,7 +84,6 @@ public abstract class Phone implements Connectivity {
     @Override
     public void connectsToWifi() {
         }
-
 
 }
 
