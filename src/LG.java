@@ -31,4 +31,11 @@ public class LG extends Phone implements Connectivity{
         System.out.println("This method is call connectsToWifi() and comes from the Connectivity interface");
     }
 
+    @Override
+    public Phone findModel(String model) throws PhoneExceptions.ModelNotFoundException {
+        if (!getModel().equals(model)) {
+            throw new PhoneExceptions.ModelNotFoundException("Model not found: " + model);
+        }
+        return this;
+    }
 }

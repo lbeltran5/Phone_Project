@@ -81,6 +81,8 @@ public abstract class Phone implements Connectivity {
     // Abstract method
     public abstract void showFeature();
 
+    public abstract Phone findModel(String model) throws PhoneExceptions.ModelNotFoundException;
+
     @Override
     public void connectsToWifi() {
         }

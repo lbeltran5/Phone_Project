@@ -32,4 +32,12 @@ public class Sony extends Phone implements Connectivity{
         System.out.println("The Sony Xperia 5 IV can connect to the Internet via wifi.");
         System.out.println("This method is call connectsToWifi() and it comes from the Connectivity interface");
     }
+
+    @Override
+    public Phone findModel(String model) throws PhoneExceptions.ModelNotFoundException {
+        if (!getModel().equals(model)) {
+            throw new PhoneExceptions.ModelNotFoundException("Model not found: " + model);
+        }
+        return this;
+    }
 }

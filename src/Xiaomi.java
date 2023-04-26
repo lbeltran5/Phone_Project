@@ -39,4 +39,12 @@ public final class Xiaomi extends Phone{
         System.out.print("Xiaomi is my final class, it has a final variable 'xiaomiFeature', and final method");
         System.out.println("");
     }
+
+    @Override
+    public Phone findModel(String model) throws PhoneExceptions.ModelNotFoundException {
+        if (!getModel().equals(model)) {
+            throw new PhoneExceptions.ModelNotFoundException("Model not found: " + model);
+        }
+        return this;
+    }
 }

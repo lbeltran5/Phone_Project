@@ -43,6 +43,8 @@ Requirements for task #6
 - Create 5 custom exceptions.
 - ***Created a PhoneException class with 5 custom exceptions***
 - Handle exceptions in 2 ways.
+- ***1. InputSelectionException is handle by try catch block in BrandSelection for user input***
+- ***2. ModelNotFoundException is handle by throws keyword on Phone class***
 - Use try-catch with resources.
 - Log messages to the console, file.
     

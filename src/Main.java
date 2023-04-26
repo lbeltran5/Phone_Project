@@ -1,5 +1,6 @@
 
 // Importing scanner for user input
+import java.sql.*;
 import java.util.*;
 
 // Define a class for the main program
@@ -19,13 +20,13 @@ public class Main {
         try {
             BrandSelection = scanner.nextInt();
             if (BrandSelection < 1 || BrandSelection > 8) {
-                throw new InvalidSelectionException("Invalid selection. Please enter a number between 1 and 8.");
+                throw new PhoneExceptions.InvalidSelectionException("Invalid selection. Please enter a number between 1 and 8." + " throws InvalidSelectionException");
             }
         } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please enter a number between 1 and 8.");
+            System.out.println("Invalid input. Please enter a number between 1 and 8."+" InputMismatchException");
             scanner.next(); // clear the scanner buffer
             return;
-        } catch (InvalidSelectionException e) {
+        } catch (PhoneExceptions.InvalidSelectionException e) {
             System.out.println(e.getMessage());
             return;
         }
@@ -125,9 +126,24 @@ public class Main {
                 //title for the specs on toString() method
                 System.out.println("*** SmartPhone Specifications using toString() ***");
                 System.out.println(motorolaPhone.toString());
+                System.out.println("");
 
                 //calling an abstract method
                 motorolaPhone.showFeature();
+                System.out.println("");
+
+                try {
+                    //calling the findModel() method
+                    Phone motorolaCell = motorolaPhone.findModel("Moto G");
+                    String model = motorolaCell.getModel();
+
+                    //printing the result
+                    System.out.println("The model is: " + model);
+                } catch (PhoneExceptions.ModelNotFoundException e) {
+                    //if the model is not found, print the error message
+                    System.out.println("Error: " + e.getMessage() + ". ModelNotFoundException handle with throw keyword.");
+                }
+
 
             } else if (BrandSelection == 5) {
                 System.out.println("Huawei Slogan:" + huaweiSlogan);

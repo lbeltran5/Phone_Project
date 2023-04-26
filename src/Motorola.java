@@ -1,3 +1,4 @@
+
 public class Motorola extends Phone{
     private final String motorolaFeature;
     private String motorolaMotto;
@@ -36,5 +37,13 @@ public class Motorola extends Phone{
     @Override
     public void showFeature(){
         System.out.println("Unique Feature: OLED Display; this is an abstract method");
+    }
+
+    @Override
+    public Phone findModel(String model) throws PhoneExceptions.ModelNotFoundException {
+        if (!getModel().equals(model)) {
+            throw new PhoneExceptions.ModelNotFoundException("Model not found: " + model);
+        }
+        return this;
     }
 }

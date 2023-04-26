@@ -40,4 +40,12 @@ public class Huawei extends Phone{
         public void showFeature(){
             System.out.println("Unique Feature: Waterproof");
         }
+
+    @Override
+    public Phone findModel(String model) throws PhoneExceptions.ModelNotFoundException {
+        if (!getModel().equals(model)) {
+            throw new PhoneExceptions.ModelNotFoundException("Model not found: " + model);
+        }
+        return this;
+    }
     }
