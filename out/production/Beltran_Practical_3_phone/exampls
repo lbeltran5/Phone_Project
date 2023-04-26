@@ -1,0 +1,15 @@
+
+            // ***Ivan Example ***
+
+            // appleCell is instance of the Apple class which is subclass of Phone
+            // This allows appleCell to be treated as Phone object and use methods and properties
+            //Phone appleCell = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
+            // 6, 1L, "Face ID feature", "Think different");
+
+            //Polymorphism with abstract class
+            //appleCell.displayPhoneSpecs();
+
+            //Polymorphism with the interface
+            //Connectivity appleConnectivity = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
+            //6, 1L, "Face ID feature", "Think different");
+            //appleConnectivity.connectsToWifi();
