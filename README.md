@@ -48,7 +48,5 @@ Requirements for task #6
 - Use try-catch with resources.
 - ***Used the InputSelectionException and try-with-resources to end program***
 - Log messages to the console, file.
-    
-  ****libraries of log4j could be downloaded manually from maven central.
-    here and here (you'll need both of them at the same time); add them to your project in IDE 
-    (e.g. sample of instruction for Intellj Idea)****
+- ***Used LOGGER.info.severe.warning to prompt multiple statements***
+

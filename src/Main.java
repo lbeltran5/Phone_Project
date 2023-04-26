@@ -1,16 +1,23 @@
 // Importing scanner for user input
 import java.util.*;
+import java.util.logging.Logger;
 
 // Define a class for the main program
 public class Main {
 
+    //
+    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
+
     public static void main(String[] args) {
+        //
+        LOGGER.info("Starting the main method.");
         //Display the phone menu
         PhoneMenu.PhoneDisplay();
 
         // Creating a scanner object to read user input
         try (Scanner scanner = new Scanner(System.in)) {
-
+            //
+            LOGGER.info("Scanner object created.");
             // Take the user selection input
             System.out.println("Enter the phone brand of your choice (1-8): ");
             int BrandSelection = 0;
@@ -21,13 +28,19 @@ public class Main {
                     throw new PhoneExceptions.InvalidSelectionException("Invalid selection. Please enter a number between 1 and 8." + " throws InvalidSelectionException");
                 }
             } catch (InputMismatchException e) {
+                LOGGER.warning(("Invalid input, this comes from LOGGER.warning."));
                 System.out.println("Invalid input. Please enter a number between 1 and 8." + " InputMismatchException");
                 scanner.next(); // clear the scanner buffer
                 return;
             } catch (PhoneExceptions.InvalidSelectionException e) {
+                LOGGER.warning(e.getMessage());
                 System.out.println(e.getMessage());
                 return;
             }
+
+            //
+            LOGGER.info("User selected Phone Brand: " + BrandSelection);
+
             // The scanner will be automatically closed at the end of the try block
             // When block completes the Scanner object is automatically closed
             // try-with-resources statement must implement "AutoClosable" interface.
@@ -176,6 +189,10 @@ public class Main {
                 sonyPhone.connectsToWifi();
 
             }
+
+        } catch (Exception e) {
+            LOGGER.severe("Error occurred in the main method: " + e.getMessage() + "LOGGER.severe");
+            e.printStackTrace();
         }
     }
 }

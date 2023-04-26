@@ -27,8 +27,8 @@ public class PhoneExceptions {
         }
     }
 
-    public static class InvalidBrandException extends PhoneException {
-        public InvalidBrandException(String message){
+    public static class BatteryStorageException extends PhoneException {
+        public BatteryStorageException(String message){
             super(message);
         }
     }
