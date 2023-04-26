@@ -33,10 +33,5 @@ public class PhoneExceptions {
         }
     }
 
-    public static class InvalidInputException extends PhoneException{
-        public InvalidInputException(String message){
-            super(message);
-        }
-    }
 
 }

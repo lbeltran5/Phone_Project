@@ -1,35 +1,37 @@
-
 // Importing scanner for user input
-import java.sql.*;
 import java.util.*;
 
 // Define a class for the main program
 public class Main {
 
     public static void main(String[] args) {
-            //Display the phone menu
-            PhoneMenu.PhoneDisplay();
+        //Display the phone menu
+        PhoneMenu.PhoneDisplay();
 
-            // Creating a scanner object to read user input
-            Scanner scanner = new Scanner(System.in);
+        // Creating a scanner object to read user input
+        try (Scanner scanner = new Scanner(System.in)) {
 
             // Take the user selection input
             System.out.println("Enter the phone brand of your choice (1-8): ");
-            int BrandSelection;
+            int BrandSelection = 0;
 
-        try {
-            BrandSelection = scanner.nextInt();
-            if (BrandSelection < 1 || BrandSelection > 8) {
-                throw new PhoneExceptions.InvalidSelectionException("Invalid selection. Please enter a number between 1 and 8." + " throws InvalidSelectionException");
+            try {
+                BrandSelection = scanner.nextInt();
+                if (BrandSelection < 1 || BrandSelection > 8) {
+                    throw new PhoneExceptions.InvalidSelectionException("Invalid selection. Please enter a number between 1 and 8." + " throws InvalidSelectionException");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number between 1 and 8." + " InputMismatchException");
+                scanner.next(); // clear the scanner buffer
+                return;
+            } catch (PhoneExceptions.InvalidSelectionException e) {
+                System.out.println(e.getMessage());
+                return;
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please enter a number between 1 and 8."+" InputMismatchException");
-            scanner.next(); // clear the scanner buffer
-            return;
-        } catch (PhoneExceptions.InvalidSelectionException e) {
-            System.out.println(e.getMessage());
-            return;
-        }
+            // The scanner will be automatically closed at the end of the try block
+            // When block completes the Scanner object is automatically closed
+            // try-with-resources statement must implement "AutoClosable" interface.
+            // Scanner class has this
 
             // Instantiate objects of implemented classes based on user input
             Samsung samsungPhone = new Samsung("Galaxy S23 Ultra", "Android 13", 1200,
@@ -48,22 +50,6 @@ public class Main {
                     6, 128L, "Wireless Charging", "Connecting people");
             Sony sonyPhone = new Sony("Sony Xperia 5 IV", "Android 12", 998,
                     8, 256L, "triple lens camera", "make.believe");
-
-            // ***Ivan Example ***
-
-            // appleCell is instance of the Apple class which is subclass of Phone
-            // This allows appleCell to be treated as Phone object and use methods and properties
-            //Phone appleCell = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
-            // 6, 1L, "Face ID feature", "Think different");
-
-            //Polymorphism with abstract class
-            //appleCell.displayPhoneSpecs();
-
-            //Polymorphism with the interface
-            //Connectivity appleConnectivity = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
-            //6, 1L, "Face ID feature", "Think different");
-            //appleConnectivity.connectsToWifi();
-
 
             // declaring and initializing string variables with slogans and different phones brands
             // the slogan is obtained by calling a method on an object
@@ -190,12 +176,7 @@ public class Main {
                 sonyPhone.connectsToWifi();
 
             }
-           /*else {
-               // throw a new BrandNotFoundException exception if the user enters an invalid input
-               System.out.println("Invalid Selection! Please enter a number between 1 and 8.");
-        }*/
-
         }
     }
-
+}
 

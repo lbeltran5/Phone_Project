@@ -46,6 +46,7 @@ Requirements for task #6
 - ***1. InputSelectionException is handle by try catch block in BrandSelection for user input***
 - ***2. ModelNotFoundException is handle by throws keyword on Phone class***
 - Use try-catch with resources.
+- ***Used the InputSelectionException and try-with-resources to end program***
 - Log messages to the console, file.
     
   ****libraries of log4j could be downloaded manually from maven central.
