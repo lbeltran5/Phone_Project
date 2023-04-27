@@ -1,6 +1,6 @@
 public class Sony extends Phone implements Connectivity{
     private final String sonyFeature;
-    private String sonyMotto;
+    private final String sonyMotto;
 
     public Sony(String model, String osVersionType, double price, int speed, long storageCapacity, String sonyFeature, String sonyMotto){
         super(model, osVersionType, price, speed, storageCapacity);
@@ -8,12 +8,9 @@ public class Sony extends Phone implements Connectivity{
         this.sonyMotto = sonyMotto;
     }
 
+    //getter method for variable sonyMotto
     public String getSonyMotto(){
         return sonyMotto;
-    }
-
-    public void setSonyMotto(String sonyMotto){
-        this.sonyMotto = sonyMotto;
     }
 
     @Override

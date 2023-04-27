@@ -3,7 +3,7 @@ public class Apple extends Phone implements Connectivity{
     //defining two private instances variables
     // variable samsungFeature is final which means that it can't be change
     private final String appleFeature;
-    private String appleMotto;
+    private final String appleMotto;
 
     //constructor method for Samsung, it takes several arguments
     public Apple(String model, String osVersionType, double price, int speed,
@@ -18,10 +18,6 @@ public class Apple extends Phone implements Connectivity{
     //getters and setter methods for private instance variables
     public String getAppleMotto(){
         return appleMotto;
-    }
-
-    public void setAppleMotto(String appleMotto) {
-        this.appleMotto = appleMotto;
     }
 
     //this method overrides the parent class method 'displayPhoneSpecs'

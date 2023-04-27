@@ -1,6 +1,6 @@
 public class Nokia extends Phone implements Connectivity{
     private final String nokiaFeature;
-    private String nokiaMotto;
+    private final String nokiaMotto;
 
     public Nokia(String model, String osVersionType, double price, int speed, long storageCapacity, String nokiaFeature, String nokiaMotto){
         super(model, osVersionType, price, speed, storageCapacity);
@@ -9,9 +9,6 @@ public class Nokia extends Phone implements Connectivity{
     }
     public String getNokiaMotto(){
         return nokiaMotto;
-    }
-    public void setNokiaMotto(String nokiaMotto){
-        this.nokiaMotto = nokiaMotto;
     }
 
     @Override
@@ -23,7 +20,6 @@ public class Nokia extends Phone implements Connectivity{
     @Override
     public void showFeature(){
         System.out.println("Unique Feature: Video Call Effects");
-        System.out.println("");
     }
 
     // using the connectsToWifi method from the interface connectivity

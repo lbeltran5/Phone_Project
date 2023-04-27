@@ -5,40 +5,44 @@ import java.util.logging.Logger;
 // Define a class for the main program
 public class Main {
 
-    //
+    //create a Logger object with the name "Main"
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
-        //
+        //Log that the main method is starting
         LOGGER.info("Starting the main method.");
         //Display the phone menu
         PhoneMenu.PhoneDisplay();
 
         // Creating a scanner object to read user input
         try (Scanner scanner = new Scanner(System.in)) {
-            //
+            // Log that the scanner object has been created
             LOGGER.info("Scanner object created.");
             // Take the user selection input
             System.out.println("Enter the phone brand of your choice (1-8): ");
-            int BrandSelection = 0;
+            int BrandSelection;
 
             try {
+                // Read the user input and validate it
                 BrandSelection = scanner.nextInt();
                 if (BrandSelection < 1 || BrandSelection > 8) {
+                    // Throw an exception if the selection is Invalid
                     throw new PhoneExceptions.InvalidSelectionException("Invalid selection. Please enter a number between 1 and 8." + " throws InvalidSelectionException");
                 }
             } catch (InputMismatchException e) {
+                // Log a warning if the user input is invalid
                 LOGGER.warning(("Invalid input, this comes from LOGGER.warning."));
                 System.out.println("Invalid input. Please enter a number between 1 and 8." + " InputMismatchException");
                 scanner.next(); // clear the scanner buffer
                 return;
             } catch (PhoneExceptions.InvalidSelectionException e) {
+                // Log a warning and print the error message if the Selection is Invalid.
                 LOGGER.warning(e.getMessage());
                 System.out.println(e.getMessage());
                 return;
             }
 
-            //
+            // Log the phone brand selected by the user
             LOGGER.info("User selected Phone Brand: " + BrandSelection);
 
             // The scanner will be automatically closed at the end of the try block
@@ -114,6 +118,8 @@ public class Main {
 
                 //calling an abstract method "showFeature()"
                 xiaomiPhone.showFeature();
+                System.out.println();
+
 
                 //final class, method, variable
                 xiaomiPhone.xiaomiFinalMethod();
@@ -125,11 +131,11 @@ public class Main {
                 //title for the specs on toString() method
                 System.out.println("*** SmartPhone Specifications using toString() ***");
                 System.out.println(motorolaPhone.toString());
-                System.out.println("");
+                System.out.println();
 
                 //calling an abstract method
                 motorolaPhone.showFeature();
-                System.out.println("");
+                System.out.println();
 
                 try {
                     //calling the findModel() method
@@ -143,27 +149,28 @@ public class Main {
                     System.out.println("Error: " + e.getMessage() + ". ModelNotFoundException handle with throw keyword.");
                 }
 
-
             } else if (BrandSelection == 5) {
                 System.out.println("Huawei Slogan:" + huaweiSlogan);
                 System.out.println();
 
                 System.out.println("** SmartPhone Specifications **");
                 huaweiPhone.displayPhoneSpecs();
+                System.out.println();
 
                 //static class, method, variable
                 int count = Huawei.getCount();
                 System.out.println("This is the static method for Huawei it counts the number of phones or objects created: " + count);
                 System.out.println("Huawei has a static block, method, and static variable 'count'");
+
             } else if (BrandSelection == 6) {
                 System.out.println("LG Slogan:" + lgSlogan);
                 System.out.println();
 
                 System.out.println("** SmartPhone Specifications **");
                 lgPhone.displayPhoneSpecs();
+                System.out.println();
 
                 //calling the interface method and printing out its message.
-                System.out.println();
                 lgPhone.connectsToWifi();
 
             } else if (BrandSelection == 7) {
@@ -172,9 +179,9 @@ public class Main {
 
                 System.out.println("** SmartPhone Specifications **");
                 nokiaPhone.displayPhoneSpecs();
+                System.out.println();
 
                 //calling the interface method and printing out its message.
-                System.out.println();
                 nokiaPhone.connectsToWifi();
 
             } else if (BrandSelection == 8) {
@@ -183,15 +190,15 @@ public class Main {
 
                 System.out.println("** SmartPhone Specifications **");
                 sonyPhone.displayPhoneSpecs();
+                System.out.println();
 
                 //calling the interface method and printing out its message.
-                System.out.println();
                 sonyPhone.connectsToWifi();
-
             }
-
         } catch (Exception e) {
+            // log the error message with the LOGGER object
             LOGGER.severe("Error occurred in the main method: " + e.getMessage() + "LOGGER.severe");
+            // print the stack trace to the console for debugging purposes
             e.printStackTrace();
         }
     }

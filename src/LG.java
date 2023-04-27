@@ -1,6 +1,6 @@
 public class LG extends Phone implements Connectivity{
     private final String lgFeature;
-    private String lgMotto;
+    private final String lgMotto;
 
     public LG(String model, String osVersionType, double price, int speed, long storageCapacity, String lgFeature, String lgMotto){
         super(model, osVersionType, price, speed, storageCapacity);
@@ -9,9 +9,6 @@ public class LG extends Phone implements Connectivity{
     }
     public String getLgMotto(){
         return lgMotto;
-    }
-    public void setLgMotto(String lgMotto){
-        this.lgMotto = lgMotto;
     }
 
     @Override

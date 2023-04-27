@@ -1,7 +1,7 @@
 
 public class Motorola extends Phone{
     private final String motorolaFeature;
-    private String motorolaMotto;
+    private final String motorolaMotto;
 
 
     public Motorola(String model, String osVersionType, double price, int speed, long storageCapacity, String motorolaFeature, String motorolaMotto){
@@ -12,9 +12,6 @@ public class Motorola extends Phone{
 
     public String getMotorolaMotto(){
         return motorolaMotto;
-    }
-    public void setMotorolaFeature(String motorolaMotto){
-        this.motorolaMotto = motorolaMotto;
     }
 
     @Override

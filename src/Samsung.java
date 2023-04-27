@@ -3,7 +3,7 @@ public class Samsung extends Phone{
     //defining two private instances variables
     // variable samsungFeature is final which means that it can't be change
     private final String samsungFeature;
-    private String samsungMotto;
+    private final String samsungMotto;
 
     //constructor method for Samsung, it takes several arguments
     public Samsung(String model, String osVersionType, double price, int speed,
@@ -18,10 +18,6 @@ public class Samsung extends Phone{
     //getters and setter methods for private instance variables
     public String getSamsungMotto() {
         return samsungMotto;
-    }
-
-    public void setSamsungMotto(String samsungMotto) {
-        this.samsungMotto = samsungMotto;
     }
 
     //this method overrides the parent class method 'displayPhoneSpecs'
