@@ -1,5 +1,5 @@
 # Phone_Project
-Home Task Requirements #3 #4 #5 #6
+Home Task Requirements #3 #4 #5 #6 #7
 
 Create a class hierarchy. Topic for your hierarchy will be provided by your mentors.
            please request it in your chat with a mentor.
@@ -50,3 +50,8 @@ Requirements for task #6
 - Log messages to the console, file.
 - ***Used LOGGER.info.severe.warning to prompt multiple statements***
 
+Requirements for task #7
+
+- Add 5 collections to the hierarchy.
+- Create custom implementation of LinkedList with generic and use it in your project.
+- ***Added the generic class CustomLinkedList and use it to implement a LinkedList in the PhoneMenu class***
