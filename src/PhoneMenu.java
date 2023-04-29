@@ -3,8 +3,9 @@ public class PhoneMenu {
 
     //Defining the phone market menu method
     public static void PhoneDisplay() {
+        // create a linked list to store the phone brands
         CustomLinkedList<String> phoneBrands = new CustomLinkedList<>();
-        phoneBrands.add("Samsung");
+        phoneBrands.add("Samsung");     // add Phone Brands to the linked list
         phoneBrands.add("Apple");
         phoneBrands.add("Xiaomi");
         phoneBrands.add("Motorola");
@@ -13,10 +14,10 @@ public class PhoneMenu {
         phoneBrands.add("Nokia");
         phoneBrands.add("Sony");
 
-        System.out.println("Welcome to the Phone Catalog!");
-        System.out.println("Please select a brand of your choice for Specifications:");
-        for (int i = 0; i < phoneBrands.size(); i++){
-            System.out.println((i + 1)+". "+ phoneBrands.get(i));
+        System.out.println("Welcome to the Phone Catalog!");    // print a welcome message
+        System.out.println("Please select a brand of your choice for Specifications:"); // user selection
+        for (int i = 0; i < phoneBrands.size(); i++){   //loop through the linked list
+            System.out.println((i + 1)+". "+ phoneBrands.get(i));   // print each phone brand with corresponding number.
         }
     }
 }
