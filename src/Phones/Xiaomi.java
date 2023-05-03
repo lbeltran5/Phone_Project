@@ -1,4 +1,6 @@
-public final class Xiaomi extends Phone{
+package Phones;
+
+public final class Xiaomi extends Phone {
     private final String xiaomiFeature;
     private final String xiaomiMotto;
 

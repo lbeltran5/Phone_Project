@@ -1,4 +1,6 @@
-public class Huawei extends Phone{
+package Phones;
+
+public class Huawei extends Phone {
         //Declaring private fields
         private final String huaweiFeature;
         private final String huaweiMotto;
@@ -17,7 +19,7 @@ public class Huawei extends Phone{
             //initializing the instance variables
             this.huaweiFeature = huaweiFeature;
             this.huaweiMotto = huaweiMotto;
-            //incrementing count in the Huawei constructor
+            //incrementing count in the PhoneBrands.Phones.Huawei constructor
             count++;
         }
 

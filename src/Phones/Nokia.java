@@ -1,4 +1,8 @@
-public class Nokia extends Phone implements Connectivity{
+package Phones;
+
+import Phones.*;
+
+public class Nokia extends Phone implements Connectivity {
     private final String nokiaFeature;
     private final String nokiaMotto;
 

@@ -1,4 +1,6 @@
-public class LG extends Phone implements Connectivity{
+package Phones;
+
+public class LG extends Phone implements Connectivity {
     private final String lgFeature;
     private final String lgMotto;
 
@@ -14,18 +16,18 @@ public class LG extends Phone implements Connectivity{
     @Override
     public void displayPhoneSpecs(){
         super.displayPhoneSpecs();
-        System.out.println("Unique Feature: "+lgFeature);
+        System.out.println("Unique Feature: "+ lgFeature);
     }
 
     @Override
     public void showFeature(){
-        System.out.println("Unique Feature: Video Call Effects");
+        System.out.println("Unique Feature: Waterproof");
     }
 
     @Override
     public void connectsToWifi() {
         System.out.println("The LG V60 ThinQ can connect to the Internet via Wifi.");
-        System.out.println("This method is call connectsToWifi() and comes from the Connectivity interface");
+        System.out.println("This method is call connectsToWifi() and comes from the Phones.Connectivity interface");
     }
 
     @Override

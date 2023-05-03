@@ -1,6 +1,8 @@
-// Importing scanner for user input
+// Importing necessary packages
 import java.util.*;
 import java.util.logging.Logger;
+import Collections.PhoneCollections;
+import Phones.*;
 
 // Define a class for the main program
 public class Main {
@@ -43,7 +45,7 @@ public class Main {
             }
 
             // Log the phone brand selected by the user
-            LOGGER.info("User selected Phone Brand: " + BrandSelection);
+            LOGGER.info("User selected Phones.Phone Brand: " + BrandSelection);
 
             // The scanner will be automatically closed at the end of the try block
             // When block completes the Scanner object is automatically closed
@@ -71,7 +73,7 @@ public class Main {
             // declaring and initializing string variables with slogans and different phones brands
             // the slogan is obtained by calling a method on an object
             // EXAMPLE: The method getSamsungMotto() is called on an object samsungPhone of the
-            //          Samsung class to obtain the motto of Samsung.
+            //          Phones.Samsung class to obtain the motto of samsung.
             String samsungSlogan = samsungPhone.getSamsungMotto();
             String appleSlogan = applePhone.getAppleMotto();
             String xiaomiSlogan = xiaomiPhone.getXiaomiMotto();
@@ -81,119 +83,142 @@ public class Main {
             String nokiaSlogan = nokiaPhone.getNokiaMotto();
             String sonySlogan = sonyPhone.getSonyMotto();
 
-            // Using if, else if, and else statements for user selection
-            if (BrandSelection == 1) {
-                //printing out the brand slogan by getting Samsung Motto method from Samsung Class
-                System.out.println("Samsung Slogan:" + samsungSlogan);
-                System.out.println();
+            // Create a new instance of the PhoneCollection class
+            PhoneCollections phoneCollections = new PhoneCollections();
 
-                //printing out the title of specs
-                System.out.println("*** SmartPhone Specifications using toString() ***");
-                //displaying the override method using toString();
-                System.out.println(samsungPhone.toString());
+            // Get the collections from the PhoneCollection object
+            Map<String, String> mapApple = phoneCollections.getAppleMap();
+            List<String> lgList = phoneCollections.getLgList();
+            Set<String> sonySet = phoneCollections.getSonySet();
 
-                //displaying the brands feature by using the abstract method which is overridden from phone's class
-                samsungPhone.showFeature();
+            // Switch statement for user selection
+            switch (BrandSelection) {
+                case 1:
+                    //printing out the brand slogan by using object Slogan
+                    System.out.println("Samsung Slogan: " + samsungSlogan);
+                    System.out.println();
 
-            } else if (BrandSelection == 2) {
-                System.out.println("Apple Slogan:" + appleSlogan);
-                System.out.println();
+                    //printing out the title of specs
+                    System.out.println("*** Samsung Specifications using toString() ***");
+                    System.out.println(samsungPhone); //displaying the override method using toString();
 
-                System.out.println("** SmartPhone Specifications **");
-                //displaying the phone specs by using the concrete method
-                applePhone.displayPhoneSpecs();
-                System.out.println();
+                    samsungPhone.showFeature(); // calling the abstract method "showFeature()"
+                    break;
+                case 2:
+                    System.out.println("Apple Slogan: " + appleSlogan);
+                    System.out.println();
 
-                //we are using the object "applePhone" to call the methods below which comes from
-                // the Connectivity interfaces.
-                applePhone.connectsToWifi();
+                    System.out.println("** Apple Specifications using Map Collection **");
 
-            } else if (BrandSelection == 3) {
-                System.out.println("Xiaomi Slogan:" + xiaomiSlogan);
-                System.out.println();
+                    // iterate over the entries in the map
+                    for (Map.Entry<String, String> entry : mapApple.entrySet()){
+                        String key = entry.getKey();
+                        String value = entry.getValue();
+                        System.out.println(key + value);
+                    }
 
-                //title for the specs on toString() method
-                System.out.println("*** SmartPhone Specifications using toString() ***");
-                System.out.println(xiaomiPhone.toString());
+                    applePhone.showFeature();   // calling abstract method
+                    System.out.println();
 
-                //calling an abstract method "showFeature()"
-                xiaomiPhone.showFeature();
-                System.out.println();
+                    applePhone.connectsToWifi(); // calling the connectsToWifi method from interface
+                    break;
+                case 3:
+                    System.out.println("Xiaomi Slogan: " + xiaomiSlogan);
+                    System.out.println();
 
+                    //title for the specs on toString() method
+                    System.out.println("*** Xiaomi Specifications using toString() ***");
+                    System.out.println(xiaomiPhone);
 
-                //final class, method, variable
-                xiaomiPhone.xiaomiFinalMethod();
+                    //calling an abstract method "showFeature()"
+                    xiaomiPhone.showFeature();
+                    System.out.println();
 
-            } else if (BrandSelection == 4) {
-                System.out.println("Motorola Slogan:" + motorolaSlogan);
-                System.out.println();
+                    //final class, method, variable
+                    xiaomiPhone.xiaomiFinalMethod();
+                    break;
+                case 4:
+                    System.out.println("Motorola Slogan: " + motorolaSlogan);
+                    System.out.println();
 
-                //title for the specs on toString() method
-                System.out.println("*** SmartPhone Specifications using toString() ***");
-                System.out.println(motorolaPhone.toString());
-                System.out.println();
+                    //title for the specs on toString() method
+                    System.out.println("*** Motorola Specifications using toString() ***");
+                    System.out.println(motorolaPhone);
+                    System.out.println();
 
-                //calling an abstract method
-                motorolaPhone.showFeature();
-                System.out.println();
+                    // try-catch for the Exception for ModelNotFound
+                    try {
+                        //calling the findModel() method
+                        Phone motorolaCell = motorolaPhone.findModel("Moto G");
+                        String model = motorolaCell.getModel();
 
-                try {
-                    //calling the findModel() method
-                    Phone motorolaCell = motorolaPhone.findModel("Moto G");
-                    String model = motorolaCell.getModel();
+                        //printing the result
+                        System.out.println("The model is: " + model);
+                    } catch (PhoneExceptions.ModelNotFoundException e) {
+                        //if the model is not found, print the error message
+                        System.out.println("Error: " + e.getMessage() + ". ModelNotFoundException handle with throw keyword.");
+                    }
+                    break;
+                case 5:
+                    System.out.println("Huawei Slogan: " + huaweiSlogan);
+                    System.out.println();
 
-                    //printing the result
-                    System.out.println("The model is: " + model);
-                } catch (PhoneExceptions.ModelNotFoundException e) {
-                    //if the model is not found, print the error message
-                    System.out.println("Error: " + e.getMessage() + ". ModelNotFoundException handle with throw keyword.");
-                }
+                    System.out.println("** Huawei Specifications using concrete method **");
+                    huaweiPhone.displayPhoneSpecs();
+                    System.out.println();
 
-            } else if (BrandSelection == 5) {
-                System.out.println("Huawei Slogan:" + huaweiSlogan);
-                System.out.println();
+                    //static class, method, variable
+                    int count = Huawei.getCount();
+                    System.out.println("This is the static method for Huawei it counts the number of phones or objects created: " + count);
+                    System.out.println("Huawei has a static block, method, and static variable 'count'");
+                    break;
+                case 6:
+                    System.out.println("LG Slogan: " + lgSlogan);
+                    System.out.println();
 
-                System.out.println("** SmartPhone Specifications **");
-                huaweiPhone.displayPhoneSpecs();
-                System.out.println();
+                    System.out.println("** LG Specifications using List Collection **");
+                    // list collection to print out lg specs
+                    for (String element: lgList){
+                        System.out.println(element);
+                    }
 
-                //static class, method, variable
-                int count = Huawei.getCount();
-                System.out.println("This is the static method for Huawei it counts the number of phones or objects created: " + count);
-                System.out.println("Huawei has a static block, method, and static variable 'count'");
+                    lgPhone.showFeature(); // calling abstract method from Child class
+                    System.out.println();
 
-            } else if (BrandSelection == 6) {
-                System.out.println("LG Slogan:" + lgSlogan);
-                System.out.println();
+                    //calling the interface method and printing out its message.
+                    lgPhone.connectsToWifi();
+                    break;
+                case 7:
+                    System.out.println("Nokia Slogan: " + nokiaSlogan);
+                    System.out.println();
 
-                System.out.println("** SmartPhone Specifications **");
-                lgPhone.displayPhoneSpecs();
-                System.out.println();
+                    System.out.println("** Nokia Specifications using concrete method **");
+                    nokiaPhone.displayPhoneSpecs();
+                    System.out.println();
 
-                //calling the interface method and printing out its message.
-                lgPhone.connectsToWifi();
+                    //calling the interface method and printing out its message.
+                    nokiaPhone.connectsToWifi();
+                    break;
+                case 8:
+                    System.out.println("Sony Slogan: " + sonySlogan);
+                    System.out.println();
 
-            } else if (BrandSelection == 7) {
-                System.out.println("Nokia Slogan:" + nokiaSlogan);
-                System.out.println();
+                    System.out.println("** Sony Specifications using Set Collection **");
 
-                System.out.println("** SmartPhone Specifications **");
-                nokiaPhone.displayPhoneSpecs();
-                System.out.println();
+                    // printing out the set collection for Phones.Sony Specs
+                    for(String element: sonySet){
+                        System.out.println(element);
+                    }
 
-                //calling the interface method and printing out its message.
-                nokiaPhone.connectsToWifi();
+                    sonyPhone.showFeature();
+                    System.out.println();
 
-            } else if (BrandSelection == 8) {
-                System.out.println("Sony Slogan:" + sonySlogan);
-                System.out.println();
-
-                System.out.println("** SmartPhone Specifications **");
-                sonyPhone.displayPhoneSpecs();
-                System.out.println();
-
-                //calling the interface method and printing out its message.
-                sonyPhone.connectsToWifi();
+                    //calling the interface method and printing out its message.
+                    sonyPhone.connectsToWifi();
+                    break;
+                default:
+                    // throw and exception if input doesn't match any of the cases
+                    throw new IllegalArgumentException("Invalid input: " + BrandSelection);
             }
         } catch (Exception e) {
             // log the error message with the LOGGER object
@@ -201,6 +226,7 @@ public class Main {
             // print the stack trace to the console for debugging purposes
             e.printStackTrace();
         }
+        // Log that the program has ended
+        LOGGER.info("Program ended.");
     }
 }
-

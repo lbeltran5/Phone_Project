@@ -1,5 +1,6 @@
+package Phones;
 
-public class Motorola extends Phone{
+public class Motorola extends Phone {
     private final String motorolaFeature;
     private final String motorolaMotto;
 
@@ -33,7 +34,7 @@ public class Motorola extends Phone{
 
     @Override
     public void showFeature(){
-        System.out.println("Unique Feature: OLED Display; this is an abstract method");
+        System.out.println("Unique Feature: OLED Display; called the abstract method");
     }
 
     @Override

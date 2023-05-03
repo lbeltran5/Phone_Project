@@ -1,4 +1,6 @@
-public class Sony extends Phone implements Connectivity{
+package Phones;
+
+public class Sony extends Phone implements Connectivity {
     private final String sonyFeature;
     private final String sonyMotto;
 

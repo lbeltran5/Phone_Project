@@ -1,16 +1,17 @@
-//this is a class defining variables
-public class Apple extends Phone implements Connectivity{
+package Phones;
+
+public class Apple extends Phone implements Connectivity {
     //defining two private instances variables
     // variable samsungFeature is final which means that it can't be change
     private final String appleFeature;
     private final String appleMotto;
 
-    //constructor method for Samsung, it takes several arguments
+    //constructor method for Phones.Samsung, it takes several arguments
     public Apple(String model, String osVersionType, double price, int speed,
                  long storageCapacity, String appleFeature, String appleMotto){
         super(model, osVersionType, price, speed, storageCapacity);
         // and sets the instances variables for class using "super" to call the constructor parent class
-        // ,and we set the specific instance variables for Samsung class
+        // ,and we set the specific instance variables for Phones.Samsung class
         this.appleFeature = appleFeature;
         this.appleMotto = appleMotto;
     }
@@ -32,7 +33,7 @@ public class Apple extends Phone implements Connectivity{
     // which this abstract method simply prints out a message indicating uniqueness feature for Smartphone
     @Override
     public void showFeature(){
-        System.out.println("Unique Feature: Face ID");
+        System.out.println("Unique Feature: Face ID feature");
     }
 
     //implementation of the connectsToWifi()
@@ -49,5 +50,3 @@ public class Apple extends Phone implements Connectivity{
         return this;
     }
 }
-
-

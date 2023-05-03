@@ -1,10 +1,19 @@
-// Declaring the custom Collection with generic type parameter T
-// which 'T' can be any object type
+package Collections;
+
+/**
+ * General Operations of a LinkedList
+ * add a node to the end of the list,
+ * get data at specific index,
+ * get the size of the list
+ * */
+
+// Custom collection (LinkedList) w/generic type parameter T
+// which T can be any object type
 public class CustomLinkedList<T> {
     private Node<T> head;   // 'head' is a reference to the first node in the list
     private int size;   // 'size' keeps track off the number of nodes in the list
 
-    // Declaring private static inner class 'Node" w/ generic type parameter T
+    // Declaring private static inner class 'Node' w/ generic type parameter T
     private static class Node<T> {
         T data;         // The data stored the nodes in the linked list
         Node<T> next;   // The reference to the next node in the list
@@ -23,7 +32,7 @@ public class CustomLinkedList<T> {
             head = newNode;     // If YES 'head' is set to new node.
         } else {
             Node<T> current = head; // Create a new node 'current' and set it to 'head'
-            while (current.next != null) {  // loop thru Linked List until the next node is 'null'
+            while (current.next != null) {  // loop through Linked List until the next node is 'null'
                 current = current.next;     // set current to the next node
             }
             current.next = newNode;     // set the next node after the last node to the new node being added
