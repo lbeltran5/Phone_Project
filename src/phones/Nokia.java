@@ -1,6 +1,4 @@
-package Phones;
-
-import Phones.*;
+package phones;
 
 public class Nokia extends Phone implements Connectivity {
     private final String nokiaFeature;

@@ -1,4 +1,4 @@
-package Phones;
+package phones;
 
 public class Apple extends Phone implements Connectivity {
     //defining two private instances variables
@@ -6,12 +6,12 @@ public class Apple extends Phone implements Connectivity {
     private final String appleFeature;
     private final String appleMotto;
 
-    //constructor method for Phones.Samsung, it takes several arguments
+    //constructor method for phones.Samsung, it takes several arguments
     public Apple(String model, String osVersionType, double price, int speed,
                  long storageCapacity, String appleFeature, String appleMotto){
         super(model, osVersionType, price, speed, storageCapacity);
         // and sets the instances variables for class using "super" to call the constructor parent class
-        // ,and we set the specific instance variables for Phones.Samsung class
+        // ,and we set the specific instance variables for phones.Samsung class
         this.appleFeature = appleFeature;
         this.appleMotto = appleMotto;
     }

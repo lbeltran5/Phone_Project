@@ -1,4 +1,4 @@
-package Phones;
+package phones;
 
 public abstract class Phone implements Connectivity {
     // Fields

@@ -1,4 +1,4 @@
-package Phones;
+package phones;
 
 public final class Xiaomi extends Phone {
     private final String xiaomiFeature;

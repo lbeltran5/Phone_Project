@@ -1,4 +1,4 @@
-package Phones;
+package phones;
 
 public class Sony extends Phone implements Connectivity {
     private final String sonyFeature;

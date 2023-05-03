@@ -1,4 +1,4 @@
-package Collections;
+package collections;
 
 /**
  * General Operations of a LinkedList

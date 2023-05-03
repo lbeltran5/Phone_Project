@@ -1,4 +1,4 @@
-package Phones;
+package phones;
 
 public class Motorola extends Phone {
     private final String motorolaFeature;

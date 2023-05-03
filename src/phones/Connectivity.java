@@ -1,4 +1,4 @@
-package Phones;
+package phones;
 
 //created an interface to interface the phone class and its child classes
 public interface Connectivity {

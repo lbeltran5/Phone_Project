@@ -1,8 +1,8 @@
 // Importing necessary packages
 import java.util.*;
 import java.util.logging.Logger;
-import Collections.PhoneCollections;
-import Phones.*;
+import collections.PhoneCollections;
+import phones.*;
 
 // Define a class for the main program
 public class Main {
@@ -45,7 +45,7 @@ public class Main {
             }
 
             // Log the phone brand selected by the user
-            LOGGER.info("User selected Phones.Phone Brand: " + BrandSelection);
+            LOGGER.info("User selected phones.Phone Brand: " + BrandSelection);
 
             // The scanner will be automatically closed at the end of the try block
             // When block completes the Scanner object is automatically closed
@@ -73,7 +73,7 @@ public class Main {
             // declaring and initializing string variables with slogans and different phones brands
             // the slogan is obtained by calling a method on an object
             // EXAMPLE: The method getSamsungMotto() is called on an object samsungPhone of the
-            //          Phones.Samsung class to obtain the motto of samsung.
+            //          phones.Samsung class to obtain the motto of samsung.
             String samsungSlogan = samsungPhone.getSamsungMotto();
             String appleSlogan = applePhone.getAppleMotto();
             String xiaomiSlogan = xiaomiPhone.getXiaomiMotto();
@@ -94,57 +94,53 @@ public class Main {
             // Switch statement for user selection
             switch (BrandSelection) {
                 case 1:
-                    //printing out the brand slogan by using object Slogan
-                    System.out.println("Samsung Slogan: " + samsungSlogan);
-                    System.out.println();
+                    //printing out the brand slogan using LOGGER
+                    LOGGER.info("Samsung Slogan: " + samsungSlogan);
 
                     //printing out the title of specs
-                    System.out.println("*** Samsung Specifications using toString() ***");
-                    System.out.println(samsungPhone); //displaying the override method using toString();
+                    LOGGER.info("*** Samsung Specifications using toString() ***");
+                    LOGGER.info(samsungPhone.toString());
 
+                    LOGGER.info("Calling showFeature() method...");
                     samsungPhone.showFeature(); // calling the abstract method "showFeature()"
                     break;
                 case 2:
-                    System.out.println("Apple Slogan: " + appleSlogan);
-                    System.out.println();
+                    LOGGER.info("Apple Slogan: " + appleSlogan);
 
-                    System.out.println("** Apple Specifications using Map Collection **");
+                    LOGGER.info("** Apple Specifications using Map Collection **");
 
                     // iterate over the entries in the map
                     for (Map.Entry<String, String> entry : mapApple.entrySet()){
                         String key = entry.getKey();
                         String value = entry.getValue();
-                        System.out.println(key + value);
+                        LOGGER.info(key + value);
                     }
 
+                    LOGGER.info("Calling showFeature() method & Interface method...");
                     applePhone.showFeature();   // calling abstract method
-                    System.out.println();
 
                     applePhone.connectsToWifi(); // calling the connectsToWifi method from interface
                     break;
                 case 3:
-                    System.out.println("Xiaomi Slogan: " + xiaomiSlogan);
-                    System.out.println();
+                    LOGGER.info("Xiaomi Slogan: " + xiaomiSlogan);
 
                     //title for the specs on toString() method
-                    System.out.println("*** Xiaomi Specifications using toString() ***");
-                    System.out.println(xiaomiPhone);
+                    LOGGER.info("*** Xiaomi Specifications using toString() ***");
+                    LOGGER.info(xiaomiPhone.toString());
 
+                    LOGGER.info("Calling showFeature() method & Final method...");
                     //calling an abstract method "showFeature()"
                     xiaomiPhone.showFeature();
-                    System.out.println();
 
                     //final class, method, variable
                     xiaomiPhone.xiaomiFinalMethod();
                     break;
                 case 4:
-                    System.out.println("Motorola Slogan: " + motorolaSlogan);
-                    System.out.println();
+                    LOGGER.info("Motorola Slogan: " + motorolaSlogan);
 
                     //title for the specs on toString() method
-                    System.out.println("*** Motorola Specifications using toString() ***");
-                    System.out.println(motorolaPhone);
-                    System.out.println();
+                    LOGGER.info("*** Motorola Specifications using toString() ***");
+                    LOGGER.info(motorolaPhone.toString());
 
                     // try-catch for the Exception for ModelNotFound
                     try {
@@ -153,65 +149,59 @@ public class Main {
                         String model = motorolaCell.getModel();
 
                         //printing the result
-                        System.out.println("The model is: " + model);
+                        LOGGER.info("The model is: " + model);
                     } catch (PhoneExceptions.ModelNotFoundException e) {
                         //if the model is not found, print the error message
-                        System.out.println("Error: " + e.getMessage() + ". ModelNotFoundException handle with throw keyword.");
+                        LOGGER.info("Error: " + e.getMessage() + ". ModelNotFoundException handle with throw keyword.");
                     }
                     break;
                 case 5:
-                    System.out.println("Huawei Slogan: " + huaweiSlogan);
-                    System.out.println();
+                    LOGGER.info("Huawei Slogan: " + huaweiSlogan);
 
-                    System.out.println("** Huawei Specifications using concrete method **");
+                    LOGGER.info("** Huawei Specifications using concrete method **");
                     huaweiPhone.displayPhoneSpecs();
-                    System.out.println();
 
                     //static class, method, variable
                     int count = Huawei.getCount();
-                    System.out.println("This is the static method for Huawei it counts the number of phones or objects created: " + count);
-                    System.out.println("Huawei has a static block, method, and static variable 'count'");
+                    LOGGER.info("This is the static method for Huawei it counts the number of phones or objects created: " + count);
+                    LOGGER.info("Huawei has a static block, method, and static variable 'count'");
                     break;
                 case 6:
-                    System.out.println("LG Slogan: " + lgSlogan);
-                    System.out.println();
+                    LOGGER.info("LG Slogan: " + lgSlogan);
 
                     System.out.println("** LG Specifications using List Collection **");
                     // list collection to print out lg specs
                     for (String element: lgList){
-                        System.out.println(element);
+                        LOGGER.info(element);
                     }
 
+                    LOGGER.info("Calling showFeature() method & Interface method...");
                     lgPhone.showFeature(); // calling abstract method from Child class
-                    System.out.println();
 
                     //calling the interface method and printing out its message.
                     lgPhone.connectsToWifi();
                     break;
                 case 7:
-                    System.out.println("Nokia Slogan: " + nokiaSlogan);
-                    System.out.println();
+                    LOGGER.info("Nokia Slogan: " + nokiaSlogan);
 
-                    System.out.println("** Nokia Specifications using concrete method **");
+                    LOGGER.info("** Nokia Specifications using concrete method **");
                     nokiaPhone.displayPhoneSpecs();
-                    System.out.println();
 
                     //calling the interface method and printing out its message.
                     nokiaPhone.connectsToWifi();
                     break;
                 case 8:
-                    System.out.println("Sony Slogan: " + sonySlogan);
-                    System.out.println();
+                    LOGGER.info("Sony Slogan: " + sonySlogan);
 
-                    System.out.println("** Sony Specifications using Set Collection **");
+                    LOGGER.info("** Sony Specifications using Set Collection **");
 
-                    // printing out the set collection for Phones.Sony Specs
+                    // printing out the set collection for phones.Sony Specs
                     for(String element: sonySet){
                         System.out.println(element);
                     }
 
+                    LOGGER.info("Calling showFeature() method & Interface method...");
                     sonyPhone.showFeature();
-                    System.out.println();
 
                     //calling the interface method and printing out its message.
                     sonyPhone.connectsToWifi();
@@ -226,7 +216,5 @@ public class Main {
             // print the stack trace to the console for debugging purposes
             e.printStackTrace();
         }
-        // Log that the program has ended
-        LOGGER.info("Program ended.");
     }
 }

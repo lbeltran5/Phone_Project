@@ -1,4 +1,4 @@
-package Phones;
+package phones;
 
 //this is a class defining variables
 public class Samsung extends Phone {
@@ -7,11 +7,11 @@ public class Samsung extends Phone {
     private final String samsungFeature;
     private final String samsungMotto;
 
-    //constructor method for Phones.Samsung, it takes several arguments
+    //constructor method for phones.Samsung, it takes several arguments
     public Samsung(String model, String osVersionType, double price, int speed,
                    long storageCapacity, String samsungFeature, String samsungMotto) {
         // and sets the instances variables for class using "super" to call the constructor parent class
-        // ,and we set the specific instance variables for Phones.Samsung class
+        // ,and we set the specific instance variables for phones.Samsung class
         super(model, osVersionType, price, speed, storageCapacity);
         this.samsungFeature = samsungFeature;
         this.samsungMotto = samsungMotto;

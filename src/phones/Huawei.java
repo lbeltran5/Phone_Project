@@ -1,4 +1,4 @@
-package Phones;
+package phones;
 
 public class Huawei extends Phone {
         //Declaring private fields
@@ -19,7 +19,7 @@ public class Huawei extends Phone {
             //initializing the instance variables
             this.huaweiFeature = huaweiFeature;
             this.huaweiMotto = huaweiMotto;
-            //incrementing count in the PhoneBrands.Phones.Huawei constructor
+            //incrementing count in the PhoneBrands.phones.Huawei constructor
             count++;
         }
 

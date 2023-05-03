@@ -1,13 +1,13 @@
-package Collections;
+package collections;
 
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class PhoneCollections{
-    private final Map<String, String> appleMap; // defining instance variables for collections
-    private final  List<String> lgList;     // with private and final
-    private final Set<String> sonySet;      // private only access within class and final cannot change once initialized
+    private Map<String, String> appleMap; // defining instance variables for collections
+    private  List<String> lgList;     // with private and final
+    private Set<String> sonySet;      // private only access within class and final cannot change once initialized
 
     public PhoneCollections(){
         appleMap = new HashMap<>();     // Creating the collections
@@ -21,14 +21,14 @@ public class PhoneCollections{
         appleMap.put("Processor Speed: ", "6 GB");
         appleMap.put("Storage Capacity: ", "1 TB");
 
-        // Populating the List and ArrayList with Phones.LG information
+        // Populating the List and ArrayList with phones.LG information
         lgList.add("Phone Model: LG V60 ThinQ");
         lgList.add("Operating System: Android 10");
         lgList.add("Price: $800 USD");
         lgList.add("Processor Speed: 8 GB");
         lgList.add("Storage Capacity: 256 GB");
 
-        // Populating the ArrayList and ArrayList with Phones.Nokia Specs
+        // Populating the ArrayList and ArrayList with phones.Nokia Specs
         sonySet.add("Phone Model: Sony Xperia 5 IV");
         sonySet.add("Operating System: Android 12");
         sonySet.add("Price: $998 USD");

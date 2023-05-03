@@ -1,4 +1,4 @@
-package Phones;
+package phones;
 
 public class LG extends Phone implements Connectivity {
     private final String lgFeature;
@@ -27,7 +27,7 @@ public class LG extends Phone implements Connectivity {
     @Override
     public void connectsToWifi() {
         System.out.println("The LG V60 ThinQ can connect to the Internet via Wifi.");
-        System.out.println("This method is call connectsToWifi() and comes from the Phones.Connectivity interface");
+        System.out.println("This method is call connectsToWifi() and comes from the phones.Connectivity interface");
     }
 
     @Override
