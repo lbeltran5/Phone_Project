@@ -1,5 +1,7 @@
 package phones;
 
+import exceptions.*;
+
 public class Huawei extends Phone {
         //Declaring private fields
         private final String huaweiFeature;
@@ -37,7 +39,27 @@ public class Huawei extends Phone {
             System.out.println("Unique Feature: "+ huaweiFeature);
         }
 
-        //Overriding abstract method to call its unique feature
+        @Override
+        public void missedCall(){
+            System.out.println("Missed Call");
+        }
+
+        @Override
+        public void messageSMS(){
+            System.out.println("Message SMS");
+        }
+
+        @Override
+        public void videoCall(){
+            System.out.println("Video Call");
+        }
+
+        @Override
+        public void voiceMail(){
+            System.out.println("Voice Mail");
+        }
+
+    //Overriding abstract method to call its unique feature
         @Override
         public void showFeature(){
             System.out.println("Unique Feature: Waterproof");
@@ -49,9 +71,9 @@ public class Huawei extends Phone {
         //equals() method here is used to compare the current phone model, if not equal to
         //it throws the ModelNotFound
         @Override
-        public Phone findModel(String model) throws PhoneExceptions.ModelNotFoundException {
+        public Phone findModel(String model) throws ModelNotFoundException {
         if (!getModel().equals(model)) {
-            throw new PhoneExceptions.ModelNotFoundException("Model not found: " + model);
+            throw new ModelNotFoundException("Model not found: " + model);
         }
         return this;
         }

@@ -10,6 +10,6 @@
             //appleCell.displayPhoneSpecs();
 
             //Polymorphism with the interface
-            //phones.Connectivity appleConnectivity = new PhoneBrands.phones.Apple("iPhone 14 Pro Max", "iOS 16", 1100,
+            //interfaces.Connectivity appleConnectivity = new PhoneBrands.phones.Apple("iPhone 14 Pro Max", "iOS 16", 1100,
             //6, 1L, "Face ID feature", "Think different");
             //appleConnectivity.connectsToWifi();

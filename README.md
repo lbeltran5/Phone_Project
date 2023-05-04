@@ -33,7 +33,7 @@ Requirements for task #5
 - Add 5 interfaces to the existing hierarchy.
 - ****Where: apple, lg, nokia, sony, & phone****
 - Use polymorphism with the abstract class and interface from the hierarchy.
-- ****Where: connectToWifi() - PhoneBrands.phones.Apple - phones.Phone - phones.Connectivity****
+- ****Where: connectToWifi() - PhoneBrands.phones.Apple - phones.Phone - interfaces.Connectivity****
 - Create final class, method, variable.
 - ****Where: phones.Xiaomi****
 - Create a static block, method, variable.

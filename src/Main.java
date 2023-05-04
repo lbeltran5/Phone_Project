@@ -2,6 +2,7 @@
 import java.util.*;
 import java.util.logging.Logger;
 import collections.PhoneCollections;
+import exceptions.*;
 import phones.*;
 
 // Define a class for the main program
@@ -29,7 +30,7 @@ public class Main {
                 BrandSelection = scanner.nextInt();
                 if (BrandSelection < 1 || BrandSelection > 8) {
                     // Throw an exception if the selection is Invalid
-                    throw new PhoneExceptions.InvalidSelectionException("Invalid selection. Please enter a number between 1 and 8." + " throws InvalidSelectionException");
+                    throw new InvalidSelectionException("Invalid selection. Please enter a number between 1 and 8." + " throws InvalidSelectionException");
                 }
             } catch (InputMismatchException e) {
                 // Log a warning if the user input is invalid
@@ -37,7 +38,7 @@ public class Main {
                 System.out.println("Invalid input. Please enter a number between 1 and 8." + " InputMismatchException");
                 scanner.next(); // clear the scanner buffer
                 return;
-            } catch (PhoneExceptions.InvalidSelectionException e) {
+            } catch (InvalidSelectionException e) {
                 // Log a warning and print the error message if the Selection is Invalid.
                 LOGGER.warning(e.getMessage());
                 System.out.println(e.getMessage());
@@ -150,7 +151,7 @@ public class Main {
 
                         //printing the result
                         LOGGER.info("The model is: " + model);
-                    } catch (PhoneExceptions.ModelNotFoundException e) {
+                    } catch (ModelNotFoundException e) {
                         //if the model is not found, print the error message
                         LOGGER.info("Error: " + e.getMessage() + ". ModelNotFoundException handle with throw keyword.");
                     }

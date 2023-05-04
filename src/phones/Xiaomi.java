@@ -1,5 +1,7 @@
 package phones;
 
+import exceptions.*;
+
 public final class Xiaomi extends Phone {
     private final String xiaomiFeature;
     private final String xiaomiMotto;
@@ -40,10 +42,31 @@ public final class Xiaomi extends Phone {
         System.out.print("Xiaomi is my final class, it has a final variable 'xiaomiFeature', and final method");
     }
 
+
     @Override
-    public Phone findModel(String model) throws PhoneExceptions.ModelNotFoundException {
+    public void missedCall(){
+        System.out.println("Missed Call");
+    }
+
+    @Override
+    public void messageSMS(){
+        System.out.println("Message SMS");
+    }
+
+    @Override
+    public void videoCall(){
+        System.out.println("Video Call");
+    }
+
+    @Override
+    public void voiceMail(){
+        System.out.println("Voice Mail");
+    }
+
+    @Override
+    public Phone findModel(String model) throws ModelNotFoundException {
         if (!getModel().equals(model)) {
-            throw new PhoneExceptions.ModelNotFoundException("Model not found: " + model);
+            throw new ModelNotFoundException("Model not found: " + model);
         }
         return this;
     }

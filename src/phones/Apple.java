@@ -1,5 +1,8 @@
 package phones;
 
+import exceptions.*;
+import interfaces.*;
+
 public class Apple extends Phone implements Connectivity {
     //defining two private instances variables
     // variable samsungFeature is final which means that it can't be change
@@ -42,10 +45,31 @@ public class Apple extends Phone implements Connectivity {
         System.out.println("The iPhone 14 Pro Max can connect to the Internet via WiFi.");
         System.out.println("This method is call connectsToWifi() and comes from the Connectivity interface");
     }
+
     @Override
-    public Phone findModel(String model) throws PhoneExceptions.ModelNotFoundException {
+    public void missedCall(){
+        System.out.println("Missed Call");
+    }
+
+    @Override
+    public void messageSMS(){
+        System.out.println("Message SMS");
+    }
+
+    @Override
+    public void videoCall(){
+        System.out.println("Video Call");
+    }
+
+    @Override
+    public void voiceMail(){
+        System.out.println("Voice Mail");
+    }
+
+    @Override
+    public Phone findModel(String model) throws ModelNotFoundException {
         if (!getModel().equals(model)) {
-            throw new PhoneExceptions.ModelNotFoundException("Model not found: " + model);
+            throw new ModelNotFoundException("Model not found: " + model);
         }
         return this;
     }

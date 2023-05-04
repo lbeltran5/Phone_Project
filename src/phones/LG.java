@@ -1,5 +1,8 @@
 package phones;
 
+import exceptions.*;
+import interfaces.*;
+
 public class LG extends Phone implements Connectivity {
     private final String lgFeature;
     private final String lgMotto;
@@ -27,13 +30,34 @@ public class LG extends Phone implements Connectivity {
     @Override
     public void connectsToWifi() {
         System.out.println("The LG V60 ThinQ can connect to the Internet via Wifi.");
-        System.out.println("This method is call connectsToWifi() and comes from the phones.Connectivity interface");
+        System.out.println("This method is call connectsToWifi() and comes from the interfaces.Connectivity interface");
     }
 
     @Override
-    public Phone findModel(String model) throws PhoneExceptions.ModelNotFoundException {
+    public void missedCall(){
+        System.out.println("Missed Call");
+    }
+
+    @Override
+    public void messageSMS(){
+        System.out.println("Message SMS");
+    }
+
+    @Override
+    public void videoCall(){
+        System.out.println("Video Call");
+    }
+
+    @Override
+    public void voiceMail(){
+        System.out.println("Voice Mail");
+    }
+
+
+    @Override
+    public Phone findModel(String model) throws ModelNotFoundException {
         if (!getModel().equals(model)) {
-            throw new PhoneExceptions.ModelNotFoundException("Model not found: " + model);
+            throw new ModelNotFoundException("Model not found: " + model);
         }
         return this;
     }

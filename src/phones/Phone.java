@@ -1,5 +1,8 @@
 package phones;
 
+import exceptions.*;
+import interfaces.*;
+
 public abstract class Phone implements Connectivity {
     // Fields
     protected String model;
@@ -82,7 +85,7 @@ public abstract class Phone implements Connectivity {
     // Abstract method
     public abstract void showFeature();
 
-    public abstract Phone findModel(String model) throws PhoneExceptions.ModelNotFoundException;
+    public abstract Phone findModel(String model) throws ModelNotFoundException;
 
     @Override
     public void connectsToWifi() {
