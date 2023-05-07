@@ -13,7 +13,32 @@ public class Main {
 
     public static void main(String[] args) {
         //Log that the main method is starting
-        LOGGER.info("Starting the main method.");
+        LOGGER.info("Main method initializing.");
+
+        // Blank line
+        System.out.println("");
+
+        // LOGGER info for printing out the hard coded text that will be read by StringUtils
+        System.out.println("This is a Hard Coded Text with repeated words. It should count the number of unique words.\n"+
+                "                I am using the StringUtil from the Apache Class");
+
+        // Defining the hardcoded text
+        String hardcodedText = "This is a Hard Coded Text with repeated words. "
+                + "It should count the number of unique words. "
+                + "I am using the StringUtil from the Apache Class";
+
+        // Create a new TextReader object with the hardcoded text as the input parameter
+        TextReader textReader = new TextReader(hardcodedText);
+
+        // Call the countUniqueWords method from TextReader class
+        int uniqueWordcount = textReader.countUniqueWords();
+
+        // print the result to the console
+        System.out.println("Unique word count: " + uniqueWordcount);
+
+        // Blank line
+        System.out.println("");
+
         //Display the phone menu
         PhoneMenu.PhoneDisplay();
 
