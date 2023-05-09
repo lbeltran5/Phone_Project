@@ -16,7 +16,7 @@ public class PhoneMenu {
         phoneBrands.add("Nokia");
         phoneBrands.add("Sony");
 
-        System.out.println("Welcome to the phones.Phone Catalog!");    // print a welcome message
+        System.out.println("******************** Phone Catalog! ********************");    // print a welcome message
         System.out.println("Please select a brand of your choice for Specifications:"); // user selection
         for (int i = 0; i < phoneBrands.size(); i++){   //loop through the linked list
             System.out.println((i + 1)+". "+ phoneBrands.get(i));   // print each phone brand with corresponding number.

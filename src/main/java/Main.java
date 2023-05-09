@@ -17,8 +17,7 @@ public class Main {
         //Log that the main method is starting
         LOGGER.info("Main method initializing.");
 
-        ////////////////////////// StringUTil and FileUtil //////////////////////////
-
+        // input & output paths variables
         String inputFilePath = "phone_Information.txt";
         String outputFilePath = "phone_colors_unique_words.txt";
 
@@ -29,7 +28,7 @@ public class Main {
 
         // Print the number of unique words counted by the "countUniqueWords" method
         // to the console.
-        System.out.println("Unique word count: " + uniqueWordCount);
+        LOGGER.info("Unique word count in text file: " + uniqueWordCount);
 
         ////////////////////////// *********************** //////////////////////////
 

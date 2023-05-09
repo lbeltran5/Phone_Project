@@ -57,3 +57,20 @@ Requirements for task #7
 - ***Map,List and Set collections used for Apple, LG, Sony***
 - Create custom implementation of LinkedList with generic and use it in your project.
 - ***Added the generic class collections.CustomLinkedList and use it to implement a LinkedList in the PhoneMenu class***
+
+Requirements for task #8 
+
+- Move all projects to Maven.
+- Build jar file and deploy to the local repository. 
+- Add and use 2 Plugins. 
+- Run mvn for different phases from the Maven lifecycle. Check the result.
+
+Requirements task 
+- Read text from the file and calculate the numbers of the unique words.
+- ***Created a text file phone_Information.txt***
+- Write the result to the file. 
+- ***Output file is called phone_colors_unique_words.txt***
+- The main requirement is: using StringUtils and FileUtils to implement it with minimum lines of code.
+- ***UniqueWordCounter StringUtils and FileUtils.***
+- ***StringUtils is used to split the content of the input file into words***
+- ***FileUtils to read the input file contents into a string & write number of unique words in a file***
