@@ -5,6 +5,7 @@ import collections.PhoneCollections;
 import exceptions.*;
 import phones.*;
 
+
 // Define a class for the main program
 public class Main {
 
@@ -12,32 +13,25 @@ public class Main {
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
+
         //Log that the main method is starting
         LOGGER.info("Main method initializing.");
 
-        // Blank line
-        System.out.println("");
+        ////////////////////////// StringUTil and FileUtil //////////////////////////
 
-        // LOGGER info for printing out the hard coded text that will be read by StringUtils
-        System.out.println("This is a Hard Coded Text with repeated words. It should count the number of unique words.\n"+
-                "                I am using the StringUtil from the Apache Class");
+        String inputFilePath = "phone_Information.txt";
+        String outputFilePath = "phone_colors_unique_words.txt";
 
-        // Defining the hardcoded text
-        String hardcodedText = "This is a Hard Coded Text with repeated words. "
-                + "It should count the number of unique words. "
-                + "I am using the StringUtil from the Apache Class";
+        // Call the "countUniqueWords" method from the "UniqueWordCounter" class and pass
+        // the input and output file paths as parameters. This method counts the number
+        // of unique words in the input file and writes them to the output file.
+        int uniqueWordCount = UniqueWordCounter.countUniqueWords(inputFilePath, outputFilePath);
 
-        // Create a new TextReader object with the hardcoded text as the input parameter
-        TextReader textReader = new TextReader(hardcodedText);
+        // Print the number of unique words counted by the "countUniqueWords" method
+        // to the console.
+        System.out.println("Unique word count: " + uniqueWordCount);
 
-        // Call the countUniqueWords method from TextReader class
-        int uniqueWordcount = textReader.countUniqueWords();
-
-        // print the result to the console
-        System.out.println("Unique word count: " + uniqueWordcount);
-
-        // Blank line
-        System.out.println("");
+        ////////////////////////// *********************** //////////////////////////
 
         //Display the phone menu
         PhoneMenu.PhoneDisplay();
