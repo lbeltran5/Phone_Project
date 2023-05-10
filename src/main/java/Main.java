@@ -5,6 +5,7 @@ import collections.PhoneCollections;
 import exceptions.*;
 import phones.*;
 
+import lambdafunctions.PhoneNumberGenerator;
 
 // Define a class for the main program
 public class Main {
@@ -110,6 +111,9 @@ public class Main {
             List<String> lgList = phoneCollections.getLgList();
             Set<String> sonySet = phoneCollections.getSonySet();
 
+            // To call successfully the PhoneNumberGenerator to the main class
+            String samsungPhoneNumber = PhoneNumberGenerator.generateSamsungPhoneNumber();
+
             // Switch statement for user selection
             switch (BrandSelection) {
                 case 1:
@@ -122,6 +126,7 @@ public class Main {
 
                     LOGGER.info("Calling showFeature() method...");
                     samsungPhone.showFeature(); // calling the abstract method "showFeature()"
+                    System.out.println("Generated Samsung phone number: " + samsungPhoneNumber);
                     break;
                 case 2:
                     LOGGER.info("Apple Slogan: " + appleSlogan);

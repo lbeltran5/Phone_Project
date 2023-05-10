@@ -51,21 +51,19 @@ Requirements for task #6
 - ***Used LOGGER.info.severe.warning to prompt multiple statements***
 
 Requirements for task #7
-
 - Add 5 collections to the hierarchy.
 - ***Created a class PhoneCollections and used it to prompt the different child classes phone specs***
 - ***Map,List and Set collections used for Apple, LG, Sony***
 - Create custom implementation of LinkedList with generic and use it in your project.
 - ***Added the generic class collections.CustomLinkedList and use it to implement a LinkedList in the PhoneMenu class***
 
-Requirements for task #8 
-
+Requirements for task #8
 - Move all projects to Maven.
 - Build jar file and deploy to the local repository. 
 - Add and use 2 Plugins. 
 - Run mvn for different phases from the Maven lifecycle. Check the result.
 
-Requirements task 
+Requirements for task #9
 - Read text from the file and calculate the numbers of the unique words.
 - ***Created a text file phone_Information.txt***
 - Write the result to the file. 
@@ -74,3 +72,8 @@ Requirements task
 - ***UniqueWordCounter StringUtils and FileUtils.***
 - ***StringUtils is used to split the content of the input file into words***
 - ***FileUtils to read the input file contents into a string & write number of unique words in a file***
+
+Requirements for task #10 
+- Use at least 5 lambda functions from the java.util.function package. 
+- Create 3 custom Lambda functions with generics.
+- Create 5 complex Enums(with fields, methods, blocks).
