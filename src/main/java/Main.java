@@ -1,11 +1,11 @@
 // Importing necessary packages
 import java.util.*;
+import java.util.function.*;
 import java.util.logging.Logger;
 import collections.PhoneCollections;
 import exceptions.*;
+import lambdafunctions.*;
 import phones.*;
-
-import lambdafunctions.PhoneNumberGenerator;
 
 // Define a class for the main program
 public class Main {
@@ -17,6 +17,8 @@ public class Main {
 
         //Log that the main method is starting
         LOGGER.info("Main method initializing.");
+
+        ////////////////////////// Counting Unique Words in a Text File and Logging the Result //////////////////////////
 
         // input & output paths variables
         String inputFilePath = "phone_Information.txt";
@@ -31,10 +33,32 @@ public class Main {
         // to the console.
         LOGGER.info("Unique word count in text file: " + uniqueWordCount);
 
-        ////////////////////////// *********************** //////////////////////////
+        ////////////////////////// Displaying the Phone Menu catalog //////////////////////////
 
-        //Display the phone menu
         PhoneMenu.PhoneDisplay();
+
+        ////////////////////////// BrandFilter using the Predicate function //////////////////////////
+
+        System.out.println("-----------------------------------------------------------");
+
+        // Create a list of brands containing several phone brands names
+        List<String> brands = Arrays.asList("Samsung", "Apple", "Sony", "Google", "Motorola");
+
+        // Define the predicate to check if phone brands starts with "S"
+        Predicate<String> startsWithSPredicate = brand -> brand.startsWith("S");
+
+        // Will filter the brands using the provided predicate
+        List<String> filteredBrands = BrandFilter.filterBrands(brands, startsWithSPredicate);
+
+        // Print the filtered brands using System.out.println
+        System.out.println("Filtered Brands using the Predicate lambda function:");
+        for (String brand : filteredBrands) {
+            System.out.println(brand);
+        }
+
+        System.out.println("-----------------------------------------------------------");
+
+        ////////////////////////// Scanner and Exceptions for InvalidSelection //////////////////////////
 
         // Creating a scanner object to read user input
         try (Scanner scanner = new Scanner(System.in)) {
@@ -65,7 +89,7 @@ public class Main {
             }
 
             // Log the phone brand selected by the user
-            LOGGER.info("User selected phones.Phone Brand: " + BrandSelection);
+            LOGGER.info("User selected Phone Brand: " + BrandSelection);
 
             // The scanner will be automatically closed at the end of the try block
             // When block completes the Scanner object is automatically closed
@@ -111,6 +135,8 @@ public class Main {
             List<String> lgList = phoneCollections.getLgList();
             Set<String> sonySet = phoneCollections.getSonySet();
 
+            // ********** PhoneNumberGenerator using the Supplier function ***************
+
             // To call successfully the PhoneNumberGenerator to the main class
             String samsungPhoneNumber = PhoneNumberGenerator.generateSamsungPhoneNumber();
 
@@ -125,8 +151,10 @@ public class Main {
                     LOGGER.info(samsungPhone.toString());
 
                     LOGGER.info("Calling showFeature() method...");
+
                     samsungPhone.showFeature(); // calling the abstract method "showFeature()"
-                    System.out.println("Generated Samsung phone number: " + samsungPhoneNumber);
+
+                    LOGGER.info("Generated Samsung phone number: " + samsungPhoneNumber);
                     break;
                 case 2:
                     LOGGER.info("Apple Slogan: " + appleSlogan);
@@ -208,8 +236,17 @@ public class Main {
                 case 7:
                     LOGGER.info("Nokia Slogan: " + nokiaSlogan);
 
-                    LOGGER.info("** Nokia Specifications using concrete method **");
-                    nokiaPhone.displayPhoneSpecs();
+                    /*LOGGER.info("** Nokia Specifications using concrete method **");
+                    nokiaPhone.displayPhoneSpecs();*/
+
+                    // Create a consumer to display phone specifications
+                    Consumer<Nokia> displaySpecs= phone -> {
+                        LOGGER.info("** Nokia Specifications using the Consumer lambda function **");
+                        phone.displayPhoneSpecs();
+                    };
+
+                    // Process the nokiaPhone object using the PhoneProcessor and the consumer function
+                    PhoneProcessor.processPhone(nokiaPhone, displaySpecs);
 
                     //calling the interface method and printing out its message.
                     nokiaPhone.connectsToWifi();

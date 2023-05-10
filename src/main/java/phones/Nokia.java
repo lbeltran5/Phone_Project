@@ -3,6 +3,8 @@ package phones;
 import exceptions.*;
 import interfaces.*;
 
+import java.util.function.*;
+
 public class Nokia extends Phone implements Connectivity {
     private final String nokiaFeature;
     private final String nokiaMotto;
@@ -61,5 +63,9 @@ public class Nokia extends Phone implements Connectivity {
             throw new ModelNotFoundException("Model not found: " + model);
         }
         return this;
+    }
+
+    public void process(Consumer<Nokia> consumer){
+        consumer.accept(this);
     }
 }
