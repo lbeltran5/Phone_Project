@@ -91,5 +91,10 @@ public abstract class Phone implements Connectivity {
     public void connectsToWifi() {
         }
 
+    // Added getName() method
+    public String getName() {
+        return model; // Assuming the model name represents the phone name
+    }
+
 }
 

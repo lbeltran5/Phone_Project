@@ -13,12 +13,42 @@ public class Main {
     //create a Logger object with the name "Main"
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 
+    public static List<String> convertToPhoneNames(List<Phone> phones, Function<Phone, String> getNameFunction) {
+        List<String> phoneNames = new ArrayList<>();    // Create a new list to store the phone names
+
+        // To iterate over each phone in the list
+        for (Phone phone : phones) {
+            String name = getNameFunction.apply(phone); // Apply the getNameFunction to extract the name of the phone
+            phoneNames.add(name);   // Add the extracted name to the list of phone names
+        }
+        return phoneNames;  // Return the list of phone names
+    }
+
+
     public static void main(String[] args) {
 
-        //Log that the main method is starting
-        LOGGER.info("Main method initializing.");
+        LOGGER.info("Main method initializing.");   // Log that the main method is starting
 
-        ////////////////////////// Counting Unique Words in a Text File and Logging the Result //////////////////////////
+        ////////////////////////// Instantiation of objects of used throughout the program //////////////////////////
+
+        Samsung samsungPhone = new Samsung("Galaxy S23 Ultra", "Android 13", 1200,
+                12, 1L, "Video Call Effects", "Together for tomorrow");
+        Apple applePhone = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
+                6, 1L, "Face ID feature", "Think different");
+        Xiaomi xiaomiPhone = new Xiaomi("Xiaomi 13 Ultra", "Android 13", 1200,
+                16, 1L, "thin and light screen", "Just for fans");
+        Motorola motorolaPhone = new Motorola("Motorola Edge 30 Ultra", "Android 12", 765,
+                12, 512L, "OLED display", "Hello Moto!");
+        Huawei huaweiPhone = new Huawei("Huawei P40 Pro", "Android 10", 650,
+                8, 256L, "waterproof", "Building a Fully Connected, Intelligent World.");
+        LG lgPhone = new LG("LG V60 ThinQ", "Android 10", 800,
+                8, 256L, "waterproof", "Life's Good");
+        Nokia nokiaPhone = new Nokia("Nokia XR20", "Android 11", 440,
+                6, 128L, "Wireless Charging", "Connecting people");
+        Sony sonyPhone = new Sony("Sony Xperia 5 IV", "Android 12", 998,
+                8, 256L, "triple lens camera", "make.believe");
+
+        ////////////////////////// Unique Words in a Text File and Logging the Result //////////////////////////
 
         // input & output paths variables
         String inputFilePath = "phone_Information.txt";
@@ -58,7 +88,22 @@ public class Main {
 
         System.out.println("-----------------------------------------------------------");
 
-        ////////////////////////// Scanner and Exceptions for InvalidSelection //////////////////////////
+        ////////////////////////// PhoneNameConverter using the Function lambda function //////////////////////////
+
+        // Create an instance of PhoneNameConverter
+        PhoneNameConverter nameConverter = new PhoneNameConverter();
+
+        // Convert the list of phones to a list of phone names
+        List<String> phoneNames = convertToPhoneNames(Arrays.asList(samsungPhone, applePhone, xiaomiPhone,
+                motorolaPhone, huaweiPhone, lgPhone, nokiaPhone, sonyPhone), nameConverter);
+
+        // Print the phone names
+        System.out.println("Phone brands converted into their phone model name using Function lambda function: ");
+        System.out.println("Phone models: " + phoneNames);
+
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        ////////////////////////// Scanner and Exceptions for InvalidSelectionException //////////////////////////
 
         // Creating a scanner object to read user input
         try (Scanner scanner = new Scanner(System.in)) {
@@ -91,31 +136,7 @@ public class Main {
             // Log the phone brand selected by the user
             LOGGER.info("User selected Phone Brand: " + BrandSelection);
 
-            // The scanner will be automatically closed at the end of the try block
-            // When block completes the Scanner object is automatically closed
-            // try-with-resources statement must implement "AutoClosable" interface.
-            // Scanner class has this
-
-            // Instantiate objects of implemented classes based on user input
-            Samsung samsungPhone = new Samsung("Galaxy S23 Ultra", "Android 13", 1200,
-                    12, 1L, "Video Call Effects", "Together for tomorrow");
-            Apple applePhone = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
-                    6, 1L, "Face ID feature", "Think different");
-            Xiaomi xiaomiPhone = new Xiaomi("Xiaomi 13 Ultra", "Android 13", 1200,
-                    16, 1L, "thin and light screen", "Just for fans");
-            Motorola motorolaPhone = new Motorola("Motorola Edge 30 Ultra", "Android 12", 765,
-                    12, 512L, "OLED display", "Hello Moto!");
-            Huawei huaweiPhone = new Huawei("Huawei P40 Pro", "Android 10", 650,
-                    8, 256L, "waterproof", "Building a Fully Connected, Intelligent World.");
-            LG lgPhone = new LG("LG V60 ThinQ", "Android 10", 800,
-                    8, 256L, "waterproof", "Life's Good");
-            Nokia nokiaPhone = new Nokia("Nokia XR20", "Android 11", 440,
-                    6, 128L, "Wireless Charging", "Connecting people");
-            Sony sonyPhone = new Sony("Sony Xperia 5 IV", "Android 12", 998,
-                    8, 256L, "triple lens camera", "make.believe");
-
-            // declaring and initializing string variables with slogans and different phones brands
-            // the slogan is obtained by calling a method on an object
+            // declaring and initializing string variables with slogans and different phones brands the slogan is obtained by calling a method on an object
             // EXAMPLE: The method getSamsungMotto() is called on an object samsungPhone of the
             //          phones.Samsung class to obtain the motto of samsung.
             String samsungSlogan = samsungPhone.getSamsungMotto();
@@ -277,5 +298,12 @@ public class Main {
             // print the stack trace to the console for debugging purposes
             e.printStackTrace();
         }
+
+        // The scanner will be automatically closed at the end of the try block
+        // When block completes the Scanner object is automatically closed
+        // try-with-resources statement must implement "AutoClosable" interface.
+        // Scanner class has this "AutoClosable"
+
     }
+
 }
