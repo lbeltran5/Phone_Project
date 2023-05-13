@@ -6,7 +6,9 @@ public class Huawei extends Phone {
         //Declaring private fields
         private final String huaweiFeature;
         private final String huaweiMotto;
+        protected String origin;
         private static int count;
+        private final String brandName;
 
         //static block to initialize static variable
         // to keep track of objects in class
@@ -15,12 +17,15 @@ public class Huawei extends Phone {
         }
 
         //Custom constructor with several arguments
-        public Huawei(String model, String osVersionType, double price, int speed, long storageCapacity, String huaweiFeature, String huaweiMotto){
+        public Huawei(String model, String osVersionType, double price, int speed, long storageCapacity, String huaweiFeature, String huaweiMotto, String origin, String brandName){
             //calls constructor parent
             super(model, osVersionType, price, speed, storageCapacity);
             //initializing the instance variables
             this.huaweiFeature = huaweiFeature;
             this.huaweiMotto = huaweiMotto;
+            this.origin = origin;
+            this.brandName = brandName;
+
             //incrementing count in the PhoneBrands.phones.Huawei constructor
             count++;
         }
@@ -45,6 +50,16 @@ public class Huawei extends Phone {
         }
 
         @Override
+        public String getOrigin(){
+            return origin;
+        }
+
+    @Override
+    public String getBrandName() {
+        return brandName;
+    }
+
+    @Override
         public void messageSMS(){
             System.out.println("Message SMS");
         }

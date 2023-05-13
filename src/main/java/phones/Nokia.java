@@ -8,11 +8,15 @@ import java.util.function.*;
 public class Nokia extends Phone implements Connectivity {
     private final String nokiaFeature;
     private final String nokiaMotto;
+    protected String origin;
+    private final String brandName;
 
-    public Nokia(String model, String osVersionType, double price, int speed, long storageCapacity, String nokiaFeature, String nokiaMotto){
+    public Nokia(String model, String osVersionType, double price, int speed, long storageCapacity, String nokiaFeature, String nokiaMotto, String origin, String brandName){
         super(model, osVersionType, price, speed, storageCapacity);
         this.nokiaFeature = nokiaFeature;
         this.nokiaMotto = nokiaMotto;
+        this.origin = origin;
+        this.brandName = brandName;
     }
     public String getNokiaMotto(){
         return nokiaMotto;
@@ -50,6 +54,16 @@ public class Nokia extends Phone implements Connectivity {
     @Override
     public void videoCall(){
         System.out.println("Video Call");
+    }
+
+    @Override
+    public String getOrigin(){
+        return origin;
+    }
+
+    @Override
+    public String getBrandName() {
+        return brandName;
     }
 
     @Override

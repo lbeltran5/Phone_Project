@@ -8,15 +8,19 @@ public class Apple extends Phone implements Connectivity {
     // variable samsungFeature is final which means that it can't be change
     private final String appleFeature;
     private final String appleMotto;
+    protected String origin;
+    private final String brandName;
 
     //constructor method for phones.Samsung, it takes several arguments
     public Apple(String model, String osVersionType, double price, int speed,
-                 long storageCapacity, String appleFeature, String appleMotto){
+                 long storageCapacity, String appleFeature, String appleMotto,String origin, String brandName){
         super(model, osVersionType, price, speed, storageCapacity);
         // and sets the instances variables for class using "super" to call the constructor parent class
         // ,and we set the specific instance variables for phones.Samsung class
         this.appleFeature = appleFeature;
         this.appleMotto = appleMotto;
+        this.origin = origin;
+        this.brandName = brandName;
     }
 
     //getters and setter methods for private instance variables
@@ -44,6 +48,16 @@ public class Apple extends Phone implements Connectivity {
     public void connectsToWifi() {
         System.out.println("The iPhone 14 Pro Max can connect to the Internet via WiFi.");
         System.out.println("This method is call connectsToWifi() and comes from the Connectivity interface");
+    }
+
+    @Override
+    public String getOrigin(){
+        return origin;
+    }
+
+    @Override
+    public String getBrandName() {
+        return brandName;
     }
 
     @Override

@@ -8,15 +8,19 @@ public class Samsung extends Phone {
     // variable samsungFeature is final which means that it can't be change
     private final String samsungFeature;
     private final String samsungMotto;
+    protected String origin;
+    private final String brandName;
 
     //constructor method for phones.Samsung, it takes several arguments
     public Samsung(String model, String osVersionType, double price, int speed,
-                   long storageCapacity, String samsungFeature, String samsungMotto) {
+                   long storageCapacity, String samsungFeature, String samsungMotto, String origin, String brandName) {
         // and sets the instances variables for class using "super" to call the constructor parent class
         // ,and we set the specific instance variables for phones.Samsung class
         super(model, osVersionType, price, speed, storageCapacity);
         this.samsungFeature = samsungFeature;
         this.samsungMotto = samsungMotto;
+        this.origin = origin;
+        this.brandName = brandName;
     }
 
     //getters and setter methods for private instance variables
@@ -59,6 +63,16 @@ public class Samsung extends Phone {
     @Override
     public void messageSMS(){
         System.out.println("Message SMS");
+    }
+
+    @Override
+    public String getOrigin(){
+        return origin;
+    }
+
+    @Override
+    public String getBrandName() {
+        return brandName;
     }
 
     @Override

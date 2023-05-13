@@ -5,11 +5,15 @@ import exceptions.*;
 public final class Xiaomi extends Phone {
     private final String xiaomiFeature;
     private final String xiaomiMotto;
+    private final String origin;
+    private final String brandName;
 
-    public Xiaomi(String model, String osVersionType, double price, int speed, long storageCapacity, String xiaomiFeature, String xiaomiMotto){
+    public Xiaomi(String model, String osVersionType, double price, int speed, long storageCapacity, String xiaomiFeature, String xiaomiMotto,String origin, String brandName){
         super(model, osVersionType, price, speed, storageCapacity);
         this.xiaomiFeature = xiaomiFeature;
         this.xiaomiMotto = xiaomiMotto;
+        this.origin = origin;
+        this.brandName = brandName;
     }
     public String getXiaomiMotto(){
         return xiaomiMotto;
@@ -56,6 +60,16 @@ public final class Xiaomi extends Phone {
     @Override
     public void videoCall(){
         System.out.println("Video Call");
+    }
+
+    @Override
+    public String getOrigin(){
+        return origin;
+    }
+
+    @Override
+    public String getBrandName() {
+        return brandName;
     }
 
     @Override

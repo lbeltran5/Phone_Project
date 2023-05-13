@@ -42,6 +42,9 @@ public abstract class Phone implements Connectivity {
     }
 */
 
+    public abstract String getOrigin();
+
+    public abstract String getBrandName();
     // for OS Version and Type
     public String getOsVersionType(){
         return osVersionType;

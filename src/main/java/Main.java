@@ -4,8 +4,13 @@ import java.util.function.*;
 import java.util.logging.Logger;
 import collections.PhoneCollections;
 import exceptions.*;
+import interfaces.*;
 import lambdafunctions.*;
 import phones.*;
+import enums.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // Define a class for the main program
 public class Main {
@@ -24,32 +29,29 @@ public class Main {
         return phoneNames;  // Return the list of phone names
     }
 
-
     public static void main(String[] args) {
 
         LOGGER.info("Main method initializing.");   // Log that the main method is starting
 
-        ////////////////////////// Instantiation of objects of used throughout the program //////////////////////////
-
+        ////////////////////////// Instantiation of objects used throughout the program //////////////////////////
         Samsung samsungPhone = new Samsung("Galaxy S23 Ultra", "Android 13", 1200,
-                12, 1L, "Video Call Effects", "Together for tomorrow");
+                12, 1L, "Video Call Effects", "Together for tomorrow", "South Korea", "Samsung");
         Apple applePhone = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
-                6, 1L, "Face ID feature", "Think different");
+                6, 1L, "Face ID feature", "Think different", "United States","Apple");
         Xiaomi xiaomiPhone = new Xiaomi("Xiaomi 13 Ultra", "Android 13", 1200,
-                16, 1L, "thin and light screen", "Just for fans");
+                16, 1L, "thin and light screen", "Just for fans", "China", "Xiaomi");
         Motorola motorolaPhone = new Motorola("Motorola Edge 30 Ultra", "Android 12", 765,
-                12, 512L, "OLED display", "Hello Moto!");
+                12, 512L, "OLED display", "Hello Moto!", "United States", "Motorola");
         Huawei huaweiPhone = new Huawei("Huawei P40 Pro", "Android 10", 650,
-                8, 256L, "waterproof", "Building a Fully Connected, Intelligent World.");
+                8, 256L, "waterproof", "Building a Fully Connected, Intelligent World.", "China", "Huawei");
         LG lgPhone = new LG("LG V60 ThinQ", "Android 10", 800,
-                8, 256L, "waterproof", "Life's Good");
+                8, 256L, "waterproof", "Life's Good","South Korea", "LG");
         Nokia nokiaPhone = new Nokia("Nokia XR20", "Android 11", 440,
-                6, 128L, "Wireless Charging", "Connecting people");
+                6, 128L, "Wireless Charging", "Connecting people","Finland", "Nokia");
         Sony sonyPhone = new Sony("Sony Xperia 5 IV", "Android 12", 998,
-                8, 256L, "triple lens camera", "make.believe");
+                8, 256L, "triple lens camera", "make.believe", "Japan","Sony");
 
         ////////////////////////// Unique Words in a Text File and Logging the Result //////////////////////////
-
         // input & output paths variables
         String inputFilePath = "phone_Information.txt";
         String outputFilePath = "phone_colors_unique_words.txt";
@@ -64,13 +66,10 @@ public class Main {
         LOGGER.info("Unique word count in text file: " + uniqueWordCount);
 
         ////////////////////////// Displaying the Phone Menu catalog //////////////////////////
-
         PhoneMenu.PhoneDisplay();
-
-        ////////////////////////// BrandFilter using the Predicate function //////////////////////////
-
         System.out.println("-----------------------------------------------------------");
 
+        ////////////////////////// BrandFilter using the Predicate function //////////////////////////
         // Create a list of brands containing several phone brands names
         List<String> brands = Arrays.asList("Samsung", "Apple", "Sony", "Google", "Motorola");
 
@@ -103,8 +102,79 @@ public class Main {
 
         System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
-        ////////////////////////// Scanner and Exceptions for InvalidSelectionException //////////////////////////
+        ////////////////////////// CustomLambdaPhoneCarrier with Generics  //////////////////////////
 
+        CustomLambdaPhoneCarrier<String> carrier = new CustomLambdaPhoneCarrier<>("Verizon, T-Mobile, AT&T, Sprint, Google FI");
+        String carrierName = carrier.get();
+        System.out.println("Top Phone Services using a Custom Lambda Function ''Supplier'' with Generics:  ");
+        System.out.println("Phone Carrier: " + carrierName);
+
+
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        ////////////////////////// CustomLambdaPhoneOrigin with Generics  //////////////////////////
+
+        CustomLambdaPredicate<String> phoneOrigin = (origin) -> origin.equals("United States");
+
+        List<Phone> brandOrigin = new ArrayList<>();
+        brandOrigin.add(samsungPhone);
+        brandOrigin.add(applePhone);
+        brandOrigin.add(xiaomiPhone);
+        brandOrigin.add(motorolaPhone);
+        brandOrigin.add(huaweiPhone);
+        brandOrigin.add(lgPhone);
+        brandOrigin.add(nokiaPhone);
+        brandOrigin.add(sonyPhone);
+
+        List<Phone> selectedPhoneBrands = new ArrayList<>();
+        for (Phone brand : brandOrigin){
+            if (phoneOrigin.test(brand.getOrigin())){
+                selectedPhoneBrands.add(brand);
+            }
+        }
+
+        System.out.println("Phone brands with origin in the United States using Custom Lambda Predicate with Generics: ");
+        for (Phone brand : selectedPhoneBrands) {
+            System.out.println(brand.getBrandName());
+        }
+
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        ////////////////////////// Enums to be used in the program  //////////////////////////
+        System.out.println("Enums used for Camera Type, Display Type, and Phone Colors: ");
+
+        // Using CameraTypeEnum
+        CameraTypeEnum cameraType = CameraTypeEnum.FRONT;
+        System.out.println("Camera Type: " + cameraType.getDescription());
+
+        CameraTypeEnum.takePhoto(cameraType);
+        CameraTypeEnum.recordVideo(CameraTypeEnum.REAR);
+
+        System.out.println();
+
+        // Using DisplayTypeEnum
+        DisplayTypeEnum displayType = DisplayTypeEnum.OLED;
+        System.out.println("Display Type: " + displayType.getDescription());
+
+        DisplayTypeEnum.showContent(displayType);
+        DisplayTypeEnum.adjustBrightness(DisplayTypeEnum.AMOLED, 5);
+
+        System.out.println();
+
+        // Using PhoneColorEnum
+        PhoneColorEnum color1 = PhoneColorEnum.BLACK;
+        System.out.println("Colors available in: " + color1.getColorName());
+
+        PhoneColorEnum color2 = PhoneColorEnum.GOLD;
+        System.out.println("Colors available in: " + color2.getColorName());
+
+        PhoneColorEnum color3 = PhoneColorEnum.RED;
+
+        color3.printColorInfo();
+
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        ////////////////////////// Scanner and Exceptions for InvalidSelectionException //////////////////////////
         // Creating a scanner object to read user input
         try (Scanner scanner = new Scanner(System.in)) {
             // Log that the scanner object has been created

@@ -5,12 +5,16 @@ import exceptions.ModelNotFoundException;
 public class Motorola extends Phone {
     private final String motorolaFeature;
     private final String motorolaMotto;
+    protected String origin;
+    private String brandName;
 
 
-    public Motorola(String model, String osVersionType, double price, int speed, long storageCapacity, String motorolaFeature, String motorolaMotto){
+    public Motorola(String model, String osVersionType, double price, int speed, long storageCapacity, String motorolaFeature, String motorolaMotto,String origin, String brandName){
         super(model, osVersionType, price, speed, storageCapacity);
         this.motorolaFeature = motorolaFeature;
         this.motorolaMotto = motorolaMotto;
+        this.origin = origin;
+        this.brandName = brandName;
     }
 
     public String getMotorolaMotto(){
@@ -47,6 +51,16 @@ public class Motorola extends Phone {
     @Override
     public void messageSMS(){
         System.out.println("Message SMS");
+    }
+
+    @Override
+    public String getOrigin(){
+        return origin;
+    }
+
+    @Override
+    public String getBrandName() {
+        return brandName;
     }
 
     @Override

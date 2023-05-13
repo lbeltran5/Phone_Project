@@ -6,11 +6,15 @@ import interfaces.*;
 public class LG extends Phone implements Connectivity {
     private final String lgFeature;
     private final String lgMotto;
+    protected String origin;
+    private final String brandName;
 
-    public LG(String model, String osVersionType, double price, int speed, long storageCapacity, String lgFeature, String lgMotto){
+    public LG(String model, String osVersionType, double price, int speed, long storageCapacity, String lgFeature, String lgMotto, String origin, String brandName){
         super(model, osVersionType, price, speed, storageCapacity);
         this.lgFeature = lgFeature;
         this.lgMotto = lgMotto;
+        this.origin = origin;
+        this.brandName = brandName;
     }
     public String getLgMotto(){
         return lgMotto;
@@ -25,6 +29,16 @@ public class LG extends Phone implements Connectivity {
     @Override
     public void showFeature(){
         System.out.println("Unique Feature: Waterproof");
+    }
+
+    @Override
+    public String getOrigin(){
+        return origin;
+    }
+
+    @Override
+    public String getBrandName() {
+        return brandName;
     }
 
     @Override
