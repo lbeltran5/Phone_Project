@@ -4,7 +4,7 @@ Home Task Requirements #3 #4 #5 #6 #7
 Create a class hierarchy. Topic for your hierarchy will be provided by your mentors.
            please request it in your chat with a mentor.
 
-                            **** SUBJECT: Phone ****
+                                            ~~~~~~~~**** SUBJECT: Phone ****
 
 Requirements for task #3:
 - At least 10 classes
@@ -80,9 +80,16 @@ Requirements for task #10
 - ***Used Predicate in the BandFilter class***
 - ***Used Supplier in the PhoneNumberGenerator***
 - Create 3 custom Lambda functions with generics.
+- ***CustomLambdaSupplier -> CustomLambdaPhoneCarrier***
+- ***CustomLambdaPredicate -> CustomLambdaOrigin***
 - Create 5 complex Enums(with fields, methods, blocks).
+- ***Created 3 complex Enums with field variables, methods and block***
+- ***CameraTypeEnum, DisplayTypeEnum, PhoneColorEnum***
 
 Requirements for task #11
 - Add 7 collection streaming in the hierarchy with terminal and non-terminal operations.
+- ***Package Stream added it contains 7 classes with terminal and non-terminal operations to used in the program***
+- ***Terminal Operation: collect, count, anyMatch, findAny***
+- ***Non-Terminal Operations: filter, map, sorted***
 - Using reflection extract information(modifiers, return types, parameters, etc) about fields, constructors, methods. 
 - Create object and call method using the only reflection.

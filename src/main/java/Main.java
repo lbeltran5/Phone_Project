@@ -8,6 +8,7 @@ import interfaces.*;
 import lambdafunctions.*;
 import phones.*;
 import enums.*;
+import stream.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,18 +39,18 @@ public class Main {
                 12, 1L, "Video Call Effects", "Together for tomorrow", "South Korea", "Samsung");
         Apple applePhone = new Apple("iPhone 14 Pro Max", "iOS 16", 1100,
                 6, 1L, "Face ID feature", "Think different", "United States","Apple");
-        Xiaomi xiaomiPhone = new Xiaomi("Xiaomi 13 Ultra", "Android 13", 1200,
+        Xiaomi xiaomiPhone = new Xiaomi("Xiaomi 13 Ultra", "Android 13", 1198,
                 16, 1L, "thin and light screen", "Just for fans", "China", "Xiaomi");
         Motorola motorolaPhone = new Motorola("Motorola Edge 30 Ultra", "Android 12", 765,
                 12, 512L, "OLED display", "Hello Moto!", "United States", "Motorola");
         Huawei huaweiPhone = new Huawei("Huawei P40 Pro", "Android 10", 650,
-                8, 256L, "waterproof", "Building a Fully Connected, Intelligent World.", "China", "Huawei");
+                8, 1L, "waterproof", "Building a Fully Connected, Intelligent World.", "China", "Huawei");
         LG lgPhone = new LG("LG V60 ThinQ", "Android 10", 800,
                 8, 256L, "waterproof", "Life's Good","South Korea", "LG");
         Nokia nokiaPhone = new Nokia("Nokia XR20", "Android 11", 440,
                 6, 128L, "Wireless Charging", "Connecting people","Finland", "Nokia");
         Sony sonyPhone = new Sony("Sony Xperia 5 IV", "Android 12", 998,
-                8, 256L, "triple lens camera", "make.believe", "Japan","Sony");
+                8, 1L, "triple lens camera", "make.believe", "Japan","Sony");
 
         ////////////////////////// Unique Words in a Text File and Logging the Result //////////////////////////
         // input & output paths variables
@@ -171,6 +172,72 @@ public class Main {
         PhoneColorEnum color3 = PhoneColorEnum.RED;
 
         color3.printColorInfo();
+
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        ////////////////////////// Streams Collections //////////////////////////
+        AnyMatchPhones anyMatchPhones = new AnyMatchPhones();
+        CollectPhones collectPhones = new CollectPhones();
+
+
+        // Check if any phone is expensive
+        boolean hasExpensivePhone = anyMatchPhones.hasExpensivePhone(brandOrigin);
+        System.out.println("Stream Collection 'anyMatch' use to return expensive phone model if true: ");
+        System.out.println("Has expensive phone: " + hasExpensivePhone);
+
+        // Get a list of expensive phones
+        List<Phone> expensivePhonesList = anyMatchPhones.getExpensivePhones(brandOrigin);
+        for (Phone phone : expensivePhonesList) {
+            System.out.println(anyMatchPhones.getPhoneDetails(phone));
+        }
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        double totalPrice = collectPhones.calculateTotalPrice(brandOrigin);
+        System.out.println("Using Stream 'collect' to calculate total price of all phones: ");
+        System.out.printf("Total Price: $%,.2f dlls%n", totalPrice);
+
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        long ramCount = CountPhones.countPhonesWith8GBRAM(brandOrigin);
+        System.out.println("Using the stream terminal operation 'count' to count the phones with 8GB RAM speed");
+        System.out.println("Number of phones with 8GB RAM:" + ramCount);
+
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        int minCapacity = 32; // Minimum storage capacity to filter by
+        List<Phone> filteredPhones = FilterStoragePhones.filterPhonesByStorageCapacity(brandOrigin,minCapacity);
+        System.out.println("Using the stream non-terminal operation 'filter' to filter out storage capacity of phone models");
+        for (Phone phone : filteredPhones) {
+            System.out.println(FilterStoragePhones.getStorageDetails(phone));
+        }
+
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        Optional<Phone> phoneInRange = FindAnyPhones.findPhoneByPriceRange(brandOrigin, 300.0, 700.0);
+        System.out.println("Using 'findAny' terminal operation to have a phone price within $300 and $700");
+        if (phoneInRange.isPresent()) {
+            System.out.println("Phone within price range found: " + phoneInRange.get().getModel());
+        } else {
+            System.out.println("No phone found within the price range.");
+        }
+
+
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        List<String> brandsUpperCase = MapPhonesUpperCase.mapPhoneBrandsToUpperCase(brandOrigin);
+        System.out.println("Phone brands in uppercase using the map non-terminal operation:");
+        brandsUpperCase.forEach(System.out::println);
+
+
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        List<Phone> sortedPhones = SortPhonePrices.sortPhonePricesDescending(brandOrigin);
+        System.out.println("Phone prices in descending order using the non-terminal sort operation:");
+
+        sortedPhones.forEach(phone -> {
+            String formattedPrice = String.format("%.2f", phone.getPrice());
+            System.out.println(phone.getBrandName() + " - $" + formattedPrice + " dlls.");
+        });
 
         System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
