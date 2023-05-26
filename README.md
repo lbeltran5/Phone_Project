@@ -1,12 +1,11 @@
 # Phone_Project
-<sup>Create a class hierarchy. Topic for your hierarchy will be provided by your mentors.
-please request it in your chat with a mentor.</sup>
+Create a class hierarchy. Topic for your hierarchy will be provided by your mentors.
+please request it in your chat with a mentor.
 
 <sup>Home Task Requirements #3 #4 #5 #6 #7 #8 #9 #10 #11 #12 #13 </sup>
 
 
-
-                                        **** SUBJECT: Phone ****
+                                            ##SUBJECT: Phone
 
 <details>
 
@@ -14,7 +13,7 @@ please request it in your chat with a mentor.</sup>
 
 ### Requirements for Home task #3
 
-| Requirements  | Description |
+| **Requirements**  | **Implementation** |
 | -- | ------------- |
 | Create at least 10 classes | Created different types of phone brands  |
 | All classes must contain properties | Each phone brand contains unique feature  |
@@ -23,30 +22,56 @@ please request it in your chat with a mentor.</sup>
 | All private variable must have getters and setter methods | All classes contain getters and setters methods  |
 | All classes should have at least one custom constructor | Constructors for each class call different variables  |
 
-```ruby
-   Create separate class with main() which will instantiate objects of implemented classes.
-```
+Create separate class with main() which will instantiate objects of implemented classes.
+
 </details>
 
-Requirements for task #4
-- Use polymorphism with at least one abstract class.
-- ****Where: PhoneBrands.phones.Apple class with phones.Phone class multiple methods****
-- Create and override at least one abstract method.
-- ****Where: method showFeature() is abstract and overrides on phones.Samsung****
-- Use at protected modifier at least 5
-- ****Where: phones.Phone class uses 5 protected modifiers in its variables****
-- Override methods from class Object (toString(), hashcode(), equals()) for at least 3 classes from the hierarchy.
-- ****Where: Classes phones.Samsung, phones.Xiaomi, PhoneBrands.phones.Motorola uses the toString() to override a method****
- 
-Requirements for task #5
-- Add 5 interfaces to the existing hierarchy.
-- ****Where: apple, lg, nokia, sony, & phone****
-- Use polymorphism with the abstract class and interface from the hierarchy.
-- ****Where: connectToWifi() - PhoneBrands.phones.Apple - phones.Phone - interfaces.Connectivity****
-- Create final class, method, variable.
-- ****Where: phones.Xiaomi****
-- Create a static block, method, variable.
-- ****Where: PhoneBrands.phones.Huawei****
+<details>
+
+<summary>Home Task #4</summary>
+
+### Requirements for Home task #4
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Use polymorphism with at least one abstract class | Apple class with Phone class multiple methods  |
+| Create and override at least one abstract method | method showFeature() is abstract and overrides on Samsung  |
+| Use protected modifier at least 5 | Phone class uses 5 protected modifiers in its variables  |
+| Override methods from class Object (toString(), hashcode(), equals()) for at least 3 classes from the hierarchy. | Classes Samsung, Xiaomi, Motorola uses the toString() to override a method |
+
+</details>
+
+<details>
+
+<summary>Home Task #5</summary>
+
+### Requirements for Home task #5
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Add 5 interfaces to the existing hierarchy | apple, lg, nokia, sony, & phone classes  |
+| Use polymorphism with the abstract class and interface from the hierarchy. | connectToWifi() -> Apple -> Phone -> interfaces.Connectivity  |
+| Create final class, method, variable | Xiaomi class  |
+| Create a static block, method, variable | Huawei class |
+
+</details>
+
+<details>
+
+<summary>Home Task #6</summary>
+
+### Requirements for Home task #6
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Create 5 custom exceptions | Created a PhoneExceptions class with 5 custom exceptions under exceptions package  |
+| Handle exceptions in 2 ways | 1. InputSelectionException is handle by try catch block in BrandSelection for user input
+    2. ModelNotFoundException is handle by throws keyword on phones.Phone class  |
+| Use try-catch with resources | Used the InputSelectionException and try-with-resources to end program  |
+| Log messages to the console, file | Used LOGGER.info.severe.warning to prompt multiple statements |
+
+</details>
+
 
 Requirements for task #6
 - Create 5 custom exceptions.
