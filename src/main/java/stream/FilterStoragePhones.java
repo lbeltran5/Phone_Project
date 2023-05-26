@@ -1,13 +1,13 @@
 package stream;
 
 import phones.Phone;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 // Filter phones by storage capacity (non-terminal operation)
 public class FilterStoragePhones {
 
+    // To get storage details from a phone brand
     public static String getStorageDetails(Phone phone) {
         long storageCapacity = phone.getStorageCapacity();
         String brand = phone.getBrandName();
@@ -24,7 +24,7 @@ public class FilterStoragePhones {
         return storageDetails;
     }
 
-
+    // To filter phones by storage capacity
     public static List<Phone> filterPhonesByStorageCapacity(List<Phone> phones, int minCapacity) {
         return phones.stream()
                 .filter(phone -> phone.getStorageCapacity() >= minCapacity)

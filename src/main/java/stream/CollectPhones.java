@@ -1,16 +1,15 @@
 package stream;
 
 import phones.*;
-
 import java.util.*;
 
 // collect operation to calculate the total price of all phones (terminal operation)
 public class CollectPhones {
-    public double calculateTotalPrice(List<Phone> phones) {
-        double totalPrice = phones.stream()
-                .mapToDouble(Phone::getPrice)
-                .sum();
 
-        return totalPrice;
+    // Calculate the total price of all phones in the list
+    public double calculateTotalPrice(List<Phone> phones) {
+        return phones.stream()
+                .mapToDouble(Phone::getPrice)   //  Convert Phone object to their prices
+                .sum();     // Sum up all the prices
     }
 }

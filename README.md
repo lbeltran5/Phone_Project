@@ -1,24 +1,33 @@
 # Phone_Project
-Home Task Requirements #3 #4 #5 #6 #7
+<sup>Create a class hierarchy. Topic for your hierarchy will be provided by your mentors.
+please request it in your chat with a mentor.</sup>
 
-Create a class hierarchy. Topic for your hierarchy will be provided by your mentors.
-           please request it in your chat with a mentor.
+<sup>Home Task Requirements #3 #4 #5 #6 #7 #8 #9 #10 #11 #12 #13 </sup>
 
-                                            ~~~~~~~~**** SUBJECT: Phone ****
 
-Requirements for task #3:
-- At least 10 classes
-- **Different types of brands**
-- All classes must contain properties (minimum 1)
-- **Each phone brand contains unique feature**
-- At least 5 private properties (in total, in any classes)
-- **Each phone brand has private variable phoneMotto for brand slogan **
-- All private variables must have getters and setters.
-- **All classes contain getters and setter methods**
-- All classes should have at least one custom constructor
-- **Constructors for each class call different variables**
-- Create separate class with main() which will instantiate objects of implemented classes.
- 
+
+                                        **** SUBJECT: Phone ****
+
+<details>
+
+<summary>Home Task #3</summary>
+
+### Requirements for Home task #3
+
+| Requirements  | Description |
+| -- | ------------- |
+| Create at least 10 classes | Created different types of phone brands  |
+| All classes must contain properties | Each phone brand contains unique feature  |
+| Create at least 10 classes | Created different types of phone brands  |
+| At least 5 private properties | Each phone brand has private variables ex: phoneMotto for brand slogan  |
+| All private variable must have getters and setter methods | All classes contain getters and setters methods  |
+| All classes should have at least one custom constructor | Constructors for each class call different variables  |
+
+```ruby
+   Create separate class with main() which will instantiate objects of implemented classes.
+```
+</details>
+
 Requirements for task #4
 - Use polymorphism with at least one abstract class.
 - ****Where: PhoneBrands.phones.Apple class with phones.Phone class multiple methods****
@@ -59,9 +68,13 @@ Requirements for task #7
 
 Requirements for task #8
 - Move all projects to Maven.
-- Build jar file and deploy to the local repository. 
+- ***moved project into maven repository***
+- Build jar file and deploy to the local repository.
+- ***SNAPSHOT.jar file in the target folder***
 - Add and use 2 Plugins. 
+- ***Added log4j-core & log4j-api and then commons-lang3 & commons-io***
 - Run mvn for different phases from the Maven lifecycle. Check the result.
+- ***Used clean, validate and deploy***
 
 Requirements for task #9
 - Read text from the file and calculate the numbers of the unique words.
@@ -73,7 +86,12 @@ Requirements for task #9
 - ***StringUtils is used to split the content of the input file into words***
 - ***FileUtils to read the input file contents into a string & write number of unique words in a file***
 
-Requirements for task #10 
+Requirements for task #10
+- Read text from the file and calculate the numbers of the unique words. Write the result to the file. 
+- The main requirement is: using StringUtils and FileUtils to implement it with minimum lines of code.
+***Created a class UniqueWordCounter and then call the method in the main to create a file output using StringUtils and FileUtils***
+
+Requirements for task #11 
 - Use at least 5 lambda functions from the java.util.function package. 
 - ***Used Consumer in the PhoneProcessor***
 - ***Used Function in the PhoneNameConverter class***
@@ -86,10 +104,19 @@ Requirements for task #10
 - ***Created 3 complex Enums with field variables, methods and block***
 - ***CameraTypeEnum, DisplayTypeEnum, PhoneColorEnum***
 
-Requirements for task #11
+Requirements for task #12
 - Add 7 collection streaming in the hierarchy with terminal and non-terminal operations.
 - ***Package Stream added it contains 7 classes with terminal and non-terminal operations to used in the program***
 - ***Terminal Operation: collect, count, anyMatch, findAny***
 - ***Non-Terminal Operations: filter, map, sorted***
 - Using reflection extract information(modifiers, return types, parameters, etc) about fields, constructors, methods. 
 - Create object and call method using the only reflection.
+- ***Created a reflection class PhoneReflection to extract information from constructors fields and methods from Samsung class***
+
+Requirements for task #13 
+- Create 2 Threads using Runnable and Thread. 
+- ***Package thread 2 threads PhoneThread and PhoneRunnable to implement threads***
+- Create Connection Pool. Use collection from java.util.concurrent package. Connection class may be mocked. The pool should be threadsafe and lazy initialized. 
+- Initialize Connection Pool object of size 5. Load Connection Pool using single threads and Java Thread Pool (7 threads in total).
+- 5 threads should be able to get the connection. 2 Threads should wait for the next available connection. The program should wait as well. 
+- Implement previous point but with interfaces Future and CompletableStage.

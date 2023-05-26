@@ -9,6 +9,7 @@ import lambdafunctions.*;
 import phones.*;
 import enums.*;
 import stream.*;
+import threads.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -220,8 +221,7 @@ public class Main {
         } else {
             System.out.println("No phone found within the price range.");
         }
-
-
+        
         System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
         List<String> brandsUpperCase = MapPhonesUpperCase.mapPhoneBrandsToUpperCase(brandOrigin);
@@ -238,6 +238,32 @@ public class Main {
             String formattedPrice = String.format("%.2f", phone.getPrice());
             System.out.println(phone.getBrandName() + " - $" + formattedPrice + " dlls.");
         });
+
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        ////////////////////////// THREADS //////////////////////////
+
+        //// **** ***** **** *** Thread **** ***** **** *** ////
+
+        //Instance of PhoneThread
+        PhoneThread phoneThread = new PhoneThread();
+
+        // starting the thread
+        phoneThread.start();
+
+        // Code to the main thread
+        System.out.println("Main Thread is running");
+
+        //// **** ***** **** *** Runnable **** ***** **** *** ////
+
+        // Create instances of PhoneRunnable
+        PhoneRunnable runnable1 = new PhoneRunnable("from PhoneRunnable");
+
+        // Create Thread objects, passing the PhoneRunnable instances as parameters
+        Thread thread1 = new Thread(runnable1);
+
+        // Start the threads
+        thread1.start();
 
         System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
 

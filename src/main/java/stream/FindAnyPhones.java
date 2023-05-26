@@ -1,15 +1,16 @@
 package stream;
 
 import phones.Phone;
-
 import java.util.List;
 import java.util.Optional;
 
-// Using 'findAny' to get any phone within a price range (terminal operation)
+// Using 'findAny' operation to get any phone within a certain price range (terminal operation)
 public class FindAnyPhones {
+
+    // These will find any phone within a given price range
     public static Optional<Phone> findPhoneByPriceRange(List<Phone> phones, double minPrice, double maxPrice) {
         return phones.stream()
-                .filter(phone -> phone.getPrice() >= minPrice && phone.getPrice() <= maxPrice)
-                .findAny();
+                .filter(phone -> phone.getPrice() >= minPrice && phone.getPrice() <= maxPrice) // Filter phones within the specified price range
+                .findAny(); // Find and return any phone from the filtered list
     }
 }
