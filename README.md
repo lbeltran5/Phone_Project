@@ -5,7 +5,7 @@ please request it in your chat with a mentor.
 <sup>Home Task Requirements #3 #4 #5 #6 #7 #8 #9 #10 #11 #12 #13 </sup>
 
 
-                                            ##SUBJECT: Phone
+                                            #SUBJECT: Phone
 
 <details>
 
@@ -85,52 +85,66 @@ Create separate class with main() which will instantiate objects of implemented 
 
 </details>
 
-Requirements for task #8
-- Move all projects to Maven.
-- ***moved project into maven repository***
-- Build jar file and deploy to the local repository.
-- ***SNAPSHOT.jar file in the target folder***
-- Add and use 2 Plugins. 
-- ***Added log4j-core & log4j-api and then commons-lang3 & commons-io***
-- Run mvn for different phases from the Maven lifecycle. Check the result.
-- ***Used clean, validate and deploy***
 
-Requirements for task #9
-- Read text from the file and calculate the numbers of the unique words.
-- ***Created a text file phone_Information.txt***
-- Write the result to the file. 
-- ***Output file is called phone_colors_unique_words.txt***
-- The main requirement is: using StringUtils and FileUtils to implement it with minimum lines of code.
-- ***UniqueWordCounter StringUtils and FileUtils.***
-- ***StringUtils is used to split the content of the input file into words***
-- ***FileUtils to read the input file contents into a string & write number of unique words in a file***
+<details>
 
-Requirements for task #10
-- Read text from the file and calculate the numbers of the unique words. Write the result to the file. 
-- The main requirement is: using StringUtils and FileUtils to implement it with minimum lines of code.
-***Created a class UniqueWordCounter and then call the method in the main to create a file output using StringUtils and FileUtils***
+<summary>Home Task #8</summary>
 
-Requirements for task #11 
-- Use at least 5 lambda functions from the java.util.function package. 
-- ***Used Consumer in the PhoneProcessor***
-- ***Used Function in the PhoneNameConverter class***
-- ***Used Predicate in the BandFilter class***
-- ***Used Supplier in the PhoneNumberGenerator***
-- Create 3 custom Lambda functions with generics.
-- ***CustomLambdaSupplier -> CustomLambdaPhoneCarrier***
-- ***CustomLambdaPredicate -> CustomLambdaOrigin***
-- Create 5 complex Enums(with fields, methods, blocks).
-- ***Created 3 complex Enums with field variables, methods and block***
-- ***CameraTypeEnum, DisplayTypeEnum, PhoneColorEnum***
+### Requirements for Home task #8
 
-Requirements for task #12
-- Add 7 collection streaming in the hierarchy with terminal and non-terminal operations.
-- ***Package Stream added it contains 7 classes with terminal and non-terminal operations to used in the program***
-- ***Terminal Operation: collect, count, anyMatch, findAny***
-- ***Non-Terminal Operations: filter, map, sorted***
-- Using reflection extract information(modifiers, return types, parameters, etc) about fields, constructors, methods. 
-- Create object and call method using the only reflection.
-- ***Created a reflection class PhoneReflection to extract information from constructors fields and methods from Samsung class***
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Move all projects to Maven | moved project into maven repository  |
+| Build jar file and deploy to the local repository | SNAPSHOT.jar file in the target folder  |
+| Add and use 2 Plugins | Added log4j-core & log4j-api and then commons-lang3 & commons-io  |
+| Run mvn for different phases from the Maven lifecycle. Check the result. | Used clean, validate and deploy |
+
+</details>
+
+<details>
+
+<summary>Home Task #9</summary>
+
+### Requirements for Home task #9
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Read text from the file and calculate the numbers of the unique words | Created a text file phone_Information.txt |
+| Write the result to the file | Output file is called phone_colors_unique_words.txt  |
+| Main requirement is: using StringUtils and FileUtils to implement it with minimum lines of code | <ul><li>UniqueWordCounter StringUtils and FileUtils</li><li>StringUtils is used to split the content of the input file into wordsli><li>FileUtils to read the input file contents into a string & write number of unique words in a file</li></ul>
+|
+
+</details>
+
+<details>
+
+<summary>Home Task #10</summary>
+
+### Requirements for Home task #10
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Use at least 5 lambda functions from the java.util.function package | <ul><li>Used Consumer in the PhoneProcessor</li><li>Used Function in the PhoneNameConverter class</li><li>Used Predicate in the BandFilter class</li><li>Used Supplier in the PhoneNumberGenerator</li></ul> |
+| Create 3 custom Lambda functions with generics | <ul><li>CustomLambdaSupplier -> CustomLambdaPhoneCarrier</li><li>CustomLambdaPredicate -> CustomLambdaOrigin</li></ul>|
+| Create 5 complex Enums(with fields, methods, blocks | <ul><li>Created 3 complex Enums with field variables, methods and block</li><li>CameraTypeEnum, DisplayTypeEnum, PhoneColorEnum</li></ul> |
+
+</details>
+
+<details>
+
+<summary>Home Task #11</summary>
+
+### Requirements for Home task #11
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Add 7 collection streaming in the hierarchy with terminal and non-terminal operations | <ul><li>Package Stream added it contains 7 classes with terminal and non-terminal operations to used in the program</li><li>Terminal Operation: collect, count, anyMatch, findAny</li><li>Non-Terminal Operations: filter, map, sorted</li></ul> |
+| Handle exceptions in 2 ways | <ul><li>1. InputSelectionException is handle by try catch block in BrandSelection for user input</li><li>2. ModelNotFoundException is handle by throws keyword on Phone class</li></ul> |
+| Using reflection extract information(modifiers, return types, parameters, etc) about fields, constructors, methods. Create object and call method using the only reflection | Created a reflection class PhoneReflection to extract information from constructors fields and methods from Samsung class  |
+| Log messages to the console, file | Used LOGGER.info.severe.warning to prompt multiple statements |
+
+</details>
+
 
 Requirements for task #13 
 - Create 2 Threads using Runnable and Thread. 
