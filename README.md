@@ -65,31 +65,25 @@ Create separate class with main() which will instantiate objects of implemented 
 | **Requirements**  | **Implementation** |
 | -- | ------------- |
 | Create 5 custom exceptions | Created a PhoneExceptions class with 5 custom exceptions under exceptions package  |
-| Handle exceptions in 2 ways | 1. InputSelectionException is handle by try catch block in BrandSelection for user input
-    2. ModelNotFoundException is handle by throws keyword on phones.Phone class  |
+| Handle exceptions in 2 ways | <ul><li>1. InputSelectionException is handle by try catch block in BrandSelection for user input</li><li>2. ModelNotFoundException is handle by throws keyword on Phone class</li></ul> |
 | Use try-catch with resources | Used the InputSelectionException and try-with-resources to end program  |
 | Log messages to the console, file | Used LOGGER.info.severe.warning to prompt multiple statements |
 
 </details>
 
+<details>
 
-Requirements for task #6
-- Create 5 custom exceptions.
-- ***Created a PhoneException class with 5 custom exceptions***
-- Handle exceptions in 2 ways.
-- ***1. InputSelectionException is handle by try catch block in BrandSelection for user input***
-- ***2. ModelNotFoundException is handle by throws keyword on phones.Phone class***
-- Use try-catch with resources.
-- ***Used the InputSelectionException and try-with-resources to end program***
-- Log messages to the console, file.
-- ***Used LOGGER.info.severe.warning to prompt multiple statements***
+<summary>Home Task #7</summary>
 
-Requirements for task #7
-- Add 5 collections to the hierarchy.
-- ***Created a class PhoneCollections and used it to prompt the different child classes phone specs***
-- ***Map,List and Set collections used for Apple, LG, Sony***
-- Create custom implementation of LinkedList with generic and use it in your project.
-- ***Added the generic class collections.CustomLinkedList and use it to implement a LinkedList in the PhoneMenu class***
+### Requirements for Home task #7
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Add 5 collections to the hierarchy | <ul><li>Created a class PhoneCollections and used it to prompt the different child classes phone specs</li><li>Map,List and Set collections used for Apple, LG, Sony</li></ul>  |
+| Use polymorphism with the abstract class and interface from the hierarchy | connectToWifi() -> Apple -> Phone -> interfaces.Connectivity  |
+| Create custom implementation of LinkedList with generic and use it in your project | Added the generic class CustomLinkedList and use it to implement a LinkedList in the PhoneMenu class  |
+
+</details>
 
 Requirements for task #8
 - Move all projects to Maven.
