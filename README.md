@@ -145,11 +145,18 @@ Create separate class with main() which will instantiate objects of implemented 
 
 </details>
 
+<details>
 
-Requirements for task #13 
-- Create 2 Threads using Runnable and Thread. 
-- ***Package thread 2 threads PhoneThread and PhoneRunnable to implement threads***
-- Create Connection Pool. Use collection from java.util.concurrent package. Connection class may be mocked. The pool should be threadsafe and lazy initialized. 
-- Initialize Connection Pool object of size 5. Load Connection Pool using single threads and Java Thread Pool (7 threads in total).
-- 5 threads should be able to get the connection. 2 Threads should wait for the next available connection. The program should wait as well. 
-- Implement previous point but with interfaces Future and CompletableStage.
+<summary>Home Task #12</summary>
+
+### Requirements for Home task #12
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Create 2 Threads using Runnable and Thread | Package thread 2 threads PhoneThread and PhoneRunnable to implement threads |
+| Create Connection Pool. Use collection from java.util.concurrent package. Connection class may be mocked. The pool should be threadsafe and lazy initialized. | Implementation here |
+| Initialize Connection Pool object of size 5. Load Connection Pool using single threads and Java Thread Pool (7 threads in total) | Implementation here |
+| 5 threads should be able to get the connection. 2 Threads should wait for the next available connection. The program should wait as well | Implementation here |
+| Implement previous point but with interfaces Future and CompletableStage | Implementation here |
+
+</details>
