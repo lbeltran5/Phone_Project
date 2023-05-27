@@ -2,7 +2,7 @@
 Create a class hierarchy. Topic for your hierarchy will be provided by your mentors.
 please request it in your chat with a mentor.
 
-<sup>Home Task Requirements #3 #4 #5 #6 #7 #8 #9 #10 #11 #12 #13 </sup>
+<sup>Home Task Requirements #3 #4 #5 #6 #7 #8 #9 #10 #11 #12 </sup>
 
 
                                             #SUBJECT: Phone
