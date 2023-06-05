@@ -3,6 +3,7 @@ import java.util.*;
 import java.util.function.*;
 import java.util.logging.Logger;
 import collections.PhoneCollections;
+import connections.*;
 import exceptions.*;
 import interfaces.*;
 import lambdafunctions.*;
@@ -45,7 +46,7 @@ public class Main {
         Motorola motorolaPhone = new Motorola("Motorola Edge 30 Ultra", "Android 12", 765,
                 12, 512L, "OLED display", "Hello Moto!", "United States", "Motorola");
         Huawei huaweiPhone = new Huawei("Huawei P40 Pro", "Android 10", 650,
-                8, 1L, "waterproof", "Building a Fully Connected, Intelligent World.", "China", "Huawei");
+                8, 1L, "Waterproof", "Building a Fully Connected, Intelligent World.", "China", "Huawei");
         LG lgPhone = new LG("LG V60 ThinQ", "Android 10", 800,
                 8, 256L, "waterproof", "Life's Good","South Korea", "LG");
         Nokia nokiaPhone = new Nokia("Nokia XR20", "Android 11", 440,
@@ -323,6 +324,36 @@ public class Main {
 
             // To call successfully the PhoneNumberGenerator to the main class
             String samsungPhoneNumber = PhoneNumberGenerator.generateSamsungPhoneNumber();
+
+
+            // ********** To use connection pool, creating and releasing connections *******
+
+            ConnectionPool connectionPool = ConnectionPool.getInstance();
+
+            // Get a connection from the pool
+            Connection connection1 = connectionPool.getConnection();
+            if (connection1 != null) {
+                connection1.connect();
+                // Use the connection
+                // ...
+                // Release the connection back to the pool
+                connectionPool.releaseConnection(connection1);
+                connection1.disconnect();
+            }
+
+            // Get another connection
+            Connection connection2 = connectionPool.getConnection();
+            if (connection2 != null) {
+                connection2.connect();
+                // Use the connection
+                // ...
+                // Release the connection back to the pool
+                connectionPool.releaseConnection(connection2);
+                connection2.disconnect();
+            }
+
+            // Check the pool size
+            System.out.println("Pool size: " + connectionPool.getPoolSize());
 
             // Switch statement for user selection
             switch (BrandSelection) {
