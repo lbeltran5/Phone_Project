@@ -1,49 +1,49 @@
 package com.solvd.laba.multiThreads;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ConnectionPool {
     private static final int MAX_POOL_SIZE = 10;
 
-    private BlockingQueue<Connection> pool;
-    private ExecutorService threadPool;
+    public final BlockingQueue<Connection> pool;
+    public final ExecutorService threadPool;
+    public final AtomicInteger count;
 
     private ConnectionPool(int poolSize) {
         pool = new ArrayBlockingQueue<>(MAX_POOL_SIZE);
         threadPool = Executors.newFixedThreadPool(poolSize);
+        count = new AtomicInteger(0);
         initializePool(poolSize);
     }
 
     private void initializePool(int poolSize) {
         for (int i = 0; i < poolSize; i++) {
-            // use to load connections asynchronous
-            threadPool.execute(() -> {
+            CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
                 pool.offer(createConnection());
                 System.out.println("Connection added to the pool: " + Thread.currentThread().getName());
-            });
-        }
+            }, threadPool);
 
-        threadPool.shutdown();
+            future.thenRunAsync(() -> count.incrementAndGet());
+        }
     }
 
-    // This method will try to retrieve connection from pool using poll method
-    // it has a timeout of 5 sec, which meand that if a connection is not available within the time it creates a new one
-    public Connection getConnection() throws InterruptedException {
-        Connection connection = pool.poll(5, TimeUnit.SECONDS);
+    public CompletableFuture<Connection> getConnection() {
+        CompletableFuture<Connection> connectionFuture = new CompletableFuture<>();
 
-        if (connection == null) {
-            connection = createConnection();
-            System.out.println("New connection created: " + Thread.currentThread().getName());
-        }
+        threadPool.execute(() -> {
+            Connection connection = pool.poll();
+            if (connection != null) {
+                connectionFuture.complete(connection);
+            } else {
+                CompletableFuture<Connection> newConnectionFuture = CompletableFuture.supplyAsync(this::createConnection, threadPool);
+                newConnectionFuture.thenAccept(connectionFuture::complete);
+            }
+        });
 
-        return connection;
+        return connectionFuture;
     }
 
-    // this method allows us to release connections to be back into the pool using offer method
     public void releaseConnection(Connection connection) {
         if (connection != null) {
             pool.offer(connection);
@@ -62,5 +62,31 @@ public class ConnectionPool {
 
     public static ConnectionPool getInstance() {
         return ConnectionPoolHolder.INSTANCE;
+    }
+
+    public static void main(String[] args) {
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
+
+        // Task 2: Acquiring connections
+        for (int i = 1; i <= 5; i++) {
+            new Thread(() -> {
+                Connection connection = connectionPool.getConnection().join();
+                System.out.println("Connection acquired by Thread: " + Thread.currentThread().getName());
+
+                connectionPool.releaseConnection(connection);
+                System.out.println("Connection released by Thread: " + Thread.currentThread().getName());
+            }).start();
+        }
+
+        // Task 3: Waiting for connections
+        for (int i = 1; i <= 2; i++) {
+            new Thread(() -> {
+                Connection connection = connectionPool.getConnection().join();
+                System.out.println("Connection acquired by Thread: " + Thread.currentThread().getName());
+
+                connectionPool.releaseConnection(connection);
+                System.out.println("Connection released by Thread: " + Thread.currentThread().getName());
+            }).start();
+        }
     }
 }
