@@ -154,9 +154,25 @@ Create separate class with main() which will instantiate objects of implemented 
 | **Requirements**  | **Implementation** |
 | -- | ------------- |
 | Create 2 Threads using Runnable and Thread | Package thread 2 threads PhoneThread and PhoneRunnable to implement threads |
-| Create Connection Pool. Use collection from java.util.concurrent package. Connection class may be mocked. The pool should be threadsafe and lazy initialized. | Implementation here |
-| Initialize Connection Pool object of size 5. Load Connection Pool using single threads and Java Thread Pool (7 threads in total) | Implementation here |
-| 5 threads should be able to get the connection. 2 Threads should wait for the next available connection. The program should wait as well | Implementation here |
+| Create Connection Pool. Use collection from java.util.concurrent package. Connection class may be mocked. The pool should be threadsafe and lazy initialized. | ConnectionPool has a size of 5 and uses singlenton thread |
+| Initialize Connection Pool object of size 5. Load Connection Pool using single threads and Java Thread Pool (7 threads in total) | Connection class and also created the DemoConnectionPool class to demonstrate usage |
+| 5 threads should be able to get the connection. 2 Threads should wait for the next available connection. The program should wait as well | Connection class and also created the DemoConnectionPool class to demonstrate usage |
 | Implement previous point but with interfaces Future and CompletableStage | Implementation here |
 
 </details>
+
+
+<details>
+
+<summary>Home Task #13</summary>
+
+### Requirements for Home task #13
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Build hierarchy for Schema from the below course | Implementation here |
+| Create DAO classes with necessary interfaces, abstract classes, and Generics.  DAO should be scalable and flexible to support another framework and another database as well. All CRUD operations should be supported using JDBC. Use connection pool from the below block | Implementation here |
+| Implement Service layer with necessary abstraction to be able to switch between databases and frameworks | Implementation here |
+
+</details>
+
