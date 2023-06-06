@@ -50,7 +50,7 @@ Create separate class with main() which will instantiate objects of implemented 
 | **Requirements**  | **Implementation** |
 | -- | ------------- |
 | Add 5 interfaces to the existing hierarchy | apple, lg, nokia, sony, & phone classes  |
-| Use polymorphism with the abstract class and interface from the hierarchy. | connectToWifi() -> Apple -> Phone -> interfaces.Connectivity  |
+| Use polymorphism with the abstract class and interface from the hierarchy. | connectToWifi() -> Apple -> Phone -> interfaces.com.solvd.laba.Connectivity  |
 | Create final class, method, variable | Xiaomi class  |
 | Create a static block, method, variable | Huawei class |
 
@@ -80,8 +80,8 @@ Create separate class with main() which will instantiate objects of implemented 
 | **Requirements**  | **Implementation** |
 | -- | ------------- |
 | Add 5 collections to the hierarchy | <ul><li>Created a class PhoneCollections and used it to prompt the different child classes phone specs</li><li>Map,List and Set collections used for Apple, LG, Sony</li></ul>  |
-| Use polymorphism with the abstract class and interface from the hierarchy | connectToWifi() -> Apple -> Phone -> interfaces.Connectivity  |
-| Create custom implementation of LinkedList with generic and use it in your project | Added the generic class CustomLinkedList and use it to implement a LinkedList in the PhoneMenu class  |
+| Use polymorphism with the abstract class and interface from the hierarchy | connectToWifi() -> Apple -> Phone -> interfaces.com.solvd.laba.Connectivity  |
+| Create custom implementation of LinkedList with generic and use it in your project | Added the generic class CustomLinkedList and use it to implement a LinkedList in the com.solvd.laba.PhoneMenu class  |
 
 </details>
 
@@ -111,7 +111,7 @@ Create separate class with main() which will instantiate objects of implemented 
 | -- | ------------- |
 | Read text from the file and calculate the numbers of the unique words | Created a text file phone_Information.txt |
 | Write the result to the file | Output file is called phone_colors_unique_words.txt  |
-| Main requirement is: using StringUtils and FileUtils to implement it with minimum lines of code | <ul><li>UniqueWordCounter StringUtils and FileUtils</li><li>StringUtils is used to split the content of the input file into wordsli><li>FileUtils to read the input file contents into a string & write number of unique words in a file</li></ul>
+| com.solvd.laba.Main requirement is: using StringUtils and FileUtils to implement it with minimum lines of code | <ul><li>com.solvd.laba.UniqueWordCounter StringUtils and FileUtils</li><li>StringUtils is used to split the content of the input file into wordsli><li>FileUtils to read the input file contents into a string & write number of unique words in a file</li></ul>
 |
 
 </details>

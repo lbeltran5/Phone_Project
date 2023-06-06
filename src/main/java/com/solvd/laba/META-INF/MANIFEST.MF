@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+com.solvd.laba.Main-Class: com.solvd.laba.Main
+

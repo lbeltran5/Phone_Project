@@ -1,15 +1,15 @@
 
             // ***Ivan Example ***
 
-            // appleCell is instance of the PhoneBrands.phones.Apple class which is subclass of phones.Phone
-            // This allows appleCell to be treated as phones.Phone object and use methods and properties
-            //phones.Phone appleCell = new PhoneBrands.phones.Apple("iPhone 14 Pro Max", "iOS 16", 1100,
+            // appleCell is instance of the PhoneBrands.phones.com.solvd.laba.Apple class which is subclass of phones.com.solvd.laba.Phone
+            // This allows appleCell to be treated as phones.com.solvd.laba.Phone object and use methods and properties
+            //phones.com.solvd.laba.Phone appleCell = new PhoneBrands.phones.com.solvd.laba.Apple("iPhone 14 Pro Max", "iOS 16", 1100,
             // 6, 1L, "Face ID feature", "Think different");
 
             //Polymorphism with abstract class
             //appleCell.displayPhoneSpecs();
 
             //Polymorphism with the interface
-            //interfaces.Connectivity appleConnectivity = new PhoneBrands.phones.Apple("iPhone 14 Pro Max", "iOS 16", 1100,
+            //interfaces.com.solvd.laba.Connectivity appleConnectivity = new PhoneBrands.phones.com.solvd.laba.Apple("iPhone 14 Pro Max", "iOS 16", 1100,
             //6, 1L, "Face ID feature", "Think different");
             //appleConnectivity.connectsToWifi();
