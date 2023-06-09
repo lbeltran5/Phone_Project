@@ -1,26 +1,27 @@
 package com.solvd.laba.database.model;
 
+
 public class PhoneModel {
-    private final int phoneId;
+    private int phoneId;
     private int brandId;
     private int osId;
     private String phoneModel;
     private double price;
-    private String countryId;
-    private int processorId;
 
-    public PhoneModel(int phoneId, int brandId, int osId, String phoneModel, double price, String countryId, int processorId) {
+    public PhoneModel() {
         this.phoneId = phoneId;
         this.brandId = brandId;
         this.osId = osId;
         this.phoneModel = phoneModel;
         this.price = price;
-        this.countryId = countryId;
-        this.processorId = processorId;
     }
 
     public int getPhoneId() {
         return phoneId;
+    }
+
+    public void setPhoneId(int phoneId) {
+        this.phoneId = phoneId;
     }
 
     public int getBrandId() {
@@ -55,22 +56,6 @@ public class PhoneModel {
         this.price = price;
     }
 
-    public String getCountryId() {
-        return countryId;
-    }
-
-    public void setCountryId(String countryId) {
-        this.countryId = countryId;
-    }
-
-    public int getProcessorId() {
-        return processorId;
-    }
-
-    public void setProcessorId(int processorId) {
-        this.processorId = processorId;
-    }
-
     @Override
     public String toString() {
         return "PhoneModel{" +
@@ -79,8 +64,6 @@ public class PhoneModel {
                 ", osId=" + osId +
                 ", phoneModel='" + phoneModel + '\'' +
                 ", price=" + price +
-                ", countryId='" + countryId + '\'' +
-                ", processorId=" + processorId +
                 '}';
     }
 }

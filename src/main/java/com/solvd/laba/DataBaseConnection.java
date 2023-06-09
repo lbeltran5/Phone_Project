@@ -31,20 +31,20 @@ public class DataBaseConnection {
             }
 
             // Create a new brand
-            BrandModel newBrand = new BrandModel(13, "Pandora"); // Replace 1 with the appropriate brandId value
+            BrandModel newBrand = new BrandModel(14, "Honor"); // Replace 1 with the appropriate brandId value
             brandService.create(newBrand);
 
             // Update a brand
-            BrandModel existingBrand = brandDAO.getById(9);
+            BrandModel existingBrand = brandDAO.getById(10);
             if (existingBrand != null) {
-                existingBrand.setBrandName("Mega_Phone");
+                existingBrand.setBrandName("Doro");
                 brandService.update(existingBrand);
             } else {
                 System.out.println("Brand not found!");
             }
 
             // Delete a brand
-            brandDAO.delete(17);
+            brandDAO.delete(21);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

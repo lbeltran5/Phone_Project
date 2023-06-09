@@ -129,4 +129,3 @@ public class BrandDAO extends AbstractDAO implements DAO<BrandModel> {
         return new BrandModel(brandId, brandName);
     }
 }
-
