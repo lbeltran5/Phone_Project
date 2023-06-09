@@ -1,3 +1,4 @@
+/*
 package com.solvd.laba.multiThreads;
 
 import java.util.concurrent.*;
@@ -89,4 +90,4 @@ public class ConnectionPool {
             }).start();
         }
     }
-}
+}*/

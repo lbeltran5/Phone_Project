@@ -1,4 +1,5 @@
 package com.solvd.laba;// Importing necessary packages
+
 import java.util.*;
 import java.util.function.*;
 import java.util.logging.Logger;
@@ -8,7 +9,6 @@ import com.solvd.laba.enums.*;
 import com.solvd.laba.exceptions.*;
 import com.solvd.laba.interfaces.*;
 import com.solvd.laba.lambdafunctions.*;
-// import com.solvd.laba.multiThreads.*;
 import com.solvd.laba.phones.*;
 import com.solvd.laba.stream.*;
 import com.solvd.laba.threads.*;
