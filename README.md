@@ -157,7 +157,7 @@ Create separate class with main() which will instantiate objects of implemented 
 | Create Connection Pool. Use collection from java.util.concurrent package. Connection class may be mocked. The pool should be threadsafe and lazy initialized. | ConnectionPool has a size of 5 and uses singlenton thread |
 | Initialize Connection Pool object of size 5. Load Connection Pool using single threads and Java Thread Pool (7 threads in total) | Connection class and also created the DemoConnectionPool class to demonstrate usage |
 | 5 threads should be able to get the connection. 2 Threads should wait for the next available connection. The program should wait as well | Connection class and also created the DemoConnectionPool class to demonstrate usage |
-| Implement previous point but with interfaces Future and CompletableStage | Implementation here |
+| Implement previous point but with interfaces Future and CompletableStage | ConnectionPool class as well as DemoConnectionPool class implement all three tasks on Connection pool, refer to comments in both classes |
 
 </details>
 
@@ -170,7 +170,7 @@ Create separate class with main() which will instantiate objects of implemented 
 
 | **Requirements**  | **Implementation** |
 | -- | ------------- |
-| Build hierarchy for Schema from the below course | Implementation here |
+| Build hierarchy for Schema from the below course | DAO and Model hierarchy classes have been created |
 | Create DAO classes with necessary interfaces, abstract classes, and Generics.  DAO should be scalable and flexible to support another framework and another database as well. All CRUD operations should be supported using JDBC. Use connection pool from the below block | Implementation here |
 | Implement Service layer with necessary abstraction to be able to switch between databases and frameworks | Implementation here |
 
