@@ -1,6 +1,0 @@
-<!-- user_account.xml -->
-<UserAccount>
-    <Id>1</Id>
-    <Username>Username</Username>
-    <Password>Password</Password>
-</UserAccount>

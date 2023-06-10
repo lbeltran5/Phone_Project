@@ -1,6 +1,89 @@
 <!-- phone.xml -->
-<Phone>
-    <Id>1</Id>
-    <Brand>PhoneBrand</Brand>
-    <Model>PhoneModel</Model>
-</Phone>
+<phone>
+    <Brands>
+        <Brand>
+            <Id>1</Id>
+            <Name>Samsung</Name>
+        </Brand>
+        <Brand>
+            <Id>2</Id>
+            <Name>Apple</Name>
+        </Brand>
+        <Brand>
+            <Id>3</Id>
+            <Name>Xiaomi</Name>
+        </Brand>
+    </Brands>
+
+    <Countries>
+        <Country>
+            <Id>1</Id>
+            <Name>South Korea</Name>
+        </Country>
+        <Country>
+            <Id>2</Id>
+            <Name>United States</Name>
+        </Country>
+        <Country>
+            <Id>3</Id>
+            <Name>China</Name>
+        </Country>
+    </Countries>
+
+    <OperatingSystems>
+        <OperatingSystem>
+            <Id>1</Id>
+            <Name>Android 13</Name>
+        </OperatingSystem>
+        <OperatingSystem>
+            <Id>2</Id>
+            <Name>iOS 16</Name>
+        </OperatingSystem>
+        <OperatingSystem>
+            <Id>3</Id>
+            <Name>Android 13</Name>
+        </OperatingSystem>
+    </OperatingSystems>
+
+    <Phones>
+        <Phone>
+            <Id>1</Id>
+            <Name>Galaxy S23 Ultra</Name>
+            <BrandId>1</BrandId>
+            <CountryId>1</CountryId>
+            <OperatingSystemId>1</OperatingSystemId>
+        </Phone>
+        <Phone>
+            <Id>2</Id>
+            <Name>iPhone 14 Pro Max</Name>
+            <BrandId>2</BrandId>
+            <CountryId>2</CountryId>
+            <OperatingSystemId>2</OperatingSystemId>
+        </Phone>
+        <Phone>
+            <Id>3</Id>
+            <Name>Xiaomi 13 Ultra</Name>
+            <BrandId>3</BrandId>
+            <CountryId>3</CountryId>
+            <OperatingSystemId>3</OperatingSystemId>
+        </Phone>
+    </Phones>
+
+    <UserAccounts>
+        <UserAccount>
+            <Id>1</Id>
+            <Username>Naruto</Username>
+            <Password>Sasuke123</Password>
+        </UserAccount>
+        <UserAccount>
+            <Id>2</Id>
+            <Username>Goku</Username>
+            <Password>DragonBallZ</Password>
+        </UserAccount>
+        <UserAccount>
+            <Id>3</Id>
+            <Username>Eren Yeager</Username>
+            <Password>FoundingTitan</Password>
+        </UserAccount>
+    </UserAccounts>
+</phone>
