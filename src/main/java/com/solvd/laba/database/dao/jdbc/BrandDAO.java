@@ -83,8 +83,9 @@ public class BrandDAO extends AbstractDAO implements DAO<BrandModel> {
 
     @Override
     public void delete(int brandId) throws SQLException {
-        String deletePhonesQuery = "DELETE FROM phone WHERE brand_id = ?";
         String deleteBrandQuery = "DELETE FROM brand WHERE brand_id = ?";
+        String deletePhonesQuery = "DELETE FROM phone WHERE brand_id = ?";
+
         Connection connection = null;
         try {
             connection = ConnectionPool.getInstance().retrieve();

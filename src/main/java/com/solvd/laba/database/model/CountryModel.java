@@ -1,19 +1,19 @@
 package com.solvd.laba.database.model;
 
 public class CountryModel {
-    private String countryId;
+    private int countryId;
     private String countryName;
 
-    public CountryModel(String countryId, String countryName) {
+    public CountryModel(int countryId, String countryName) {
         this.countryId = countryId;
         this.countryName = countryName;
     }
 
-    public String getCountryId() {
+    public int getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(String countryId) {
+    public void setCountryId(int countryId) {
         this.countryId = countryId;
     }
 

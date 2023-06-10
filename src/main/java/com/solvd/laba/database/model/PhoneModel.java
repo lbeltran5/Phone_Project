@@ -8,7 +8,7 @@ public class PhoneModel {
     private String phoneModel;
     private double price;
 
-    public PhoneModel() {
+    public PhoneModel(int phoneId, int brandId, int osId, String phoneModel, double price) {
         this.phoneId = phoneId;
         this.brandId = brandId;
         this.osId = osId;

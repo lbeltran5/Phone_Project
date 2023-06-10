@@ -105,7 +105,6 @@ public class PhoneDAO extends AbstractDAO implements DAO<PhoneModel> {
         }
     }
 
-
     public PhoneModel getById(int id) throws SQLException {
         String query = "SELECT * FROM phone WHERE phone_id = ?";
         try (Connection connection = ConnectionPool.getInstance().retrieve();
@@ -123,14 +122,12 @@ public class PhoneDAO extends AbstractDAO implements DAO<PhoneModel> {
         return null; // Return null if the brand is not found
     }
 
-
     private PhoneModel mapResultSetToPhoneModel(ResultSet resultSet) throws SQLException {
-        PhoneModel phone = new PhoneModel();
-        phone.setPhoneId(resultSet.getInt("phone_id"));
-        phone.setBrandId(resultSet.getInt("brand_id"));
-        phone.setOsId(resultSet.getInt("os_id"));
-        phone.setPhoneModel(resultSet.getString("phone_model"));
-        phone.setPrice(resultSet.getDouble("price"));
-        return phone;
+        int brandId = resultSet.getInt("brand_id");
+        int phoneId = resultSet.getInt("phone_id");
+        int osId = resultSet.getInt("os_id");
+        String phoneModel = resultSet.getString("phone_model");
+        double price = resultSet.getDouble("price");
+        return new PhoneModel(phoneId, brandId, osId, phoneModel, price);
     }
 }
