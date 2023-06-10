@@ -171,8 +171,37 @@ Create separate class with main() which will instantiate objects of implemented 
 | **Requirements**  | **Implementation** |
 | -- | ------------- |
 | Build hierarchy for Schema from the below course | DAO and Model hierarchy classes have been created |
-| Create DAO classes with necessary interfaces, abstract classes, and Generics.  DAO should be scalable and flexible to support another framework and another database as well. All CRUD operations should be supported using JDBC. Use connection pool from the below block | Implementation here |
-| Implement Service layer with necessary abstraction to be able to switch between databases and frameworks | Implementation here |
+| Create DAO classes with necessary interfaces, abstract classes, and Generics.  DAO should be scalable and flexible to support another framework and another database as well. All CRUD operations should be supported using JDBC. Use connection pool from the below block | dao, model, and services packages; dao contains jdbc package with DAO implementaion class with a generic DAO interface, model package contains all Model classes, and services contains implementations package has well has Generic Services |
+| Implement Service layer with necessary abstraction to be able to switch between databases and frameworks | Service package -> Generic Services interface & implementation package with Services for classes. |
+
+</details>
+
+
+<details>
+
+<summary>Home Task #14</summary>
+
+### Requirements for Home task #14
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Create one XML file and XSD schema for at least 5 classes from the below hierarchy | Implementation here |
+| Validate XML file using XSD schema and assigned parser | Implementation here |
+| Parse XML file using one of the parsers from the title | Implementation here |
+
+</details>
+
+
+<details>
+
+<summary>Home Task #15</summary>
+
+### Requirements for Home task #15
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Add JAXB annotations to the hierarchy. Date, List, and complex objects should be covered | Implementation here |
+| Parse XML using JAXB | Implementation here |
 
 </details>
 
