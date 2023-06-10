@@ -1,0 +1,5 @@
+<!-- country.xml -->
+<Country>
+    <Id>1</Id>
+    <Name>CountryName</Name>
+</Country>

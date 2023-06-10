@@ -1,0 +1,12 @@
+<!-- phone.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Phone">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Id" type="xs:int"/>
+                <xs:element name="Brand" type="xs:string"/>
+                <xs:element name="Model" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,5 @@
+<!-- operating_system.xml -->
+<OperatingSystem>
+    <Id>1</Id>
+    <Name>OperatingSystemName</Name>
+</OperatingSystem>

@@ -1,4 +1,4 @@
-package com.solvd.laba;
+package com.solvd.laba.database;
 
 import com.solvd.laba.database.*;
 import com.solvd.laba.database.dao.DAO;

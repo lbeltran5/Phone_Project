@@ -1,0 +1,6 @@
+<!-- phone.xml -->
+<Phone>
+    <Id>1</Id>
+    <Brand>PhoneBrand</Brand>
+    <Model>PhoneModel</Model>
+</Phone>
