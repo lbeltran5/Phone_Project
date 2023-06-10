@@ -185,7 +185,7 @@ Create separate class with main() which will instantiate objects of implemented 
 
 | **Requirements**  | **Implementation** |
 | -- | ------------- |
-| Create one XML file and XSD schema for at least 5 classes from the below hierarchy | Implementation here |
+| Create one XML file and XSD schema for at least 5 classes from the below hierarchy | Added XML and XSD under Resources package with 5 classes from CRUD assignment |
 | Validate XML file using XSD schema and assigned parser | Implementation here |
 | Parse XML file using one of the parsers from the title | Implementation here |
 
