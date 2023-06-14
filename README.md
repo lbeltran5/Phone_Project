@@ -205,3 +205,6 @@ Create separate class with main() which will instantiate objects of implemented 
 
 </details>
 
+This is an attempt by Ella to make minor changes and perform a pull 
+request. Please make sure the changes are visible on your side, and merge 
+if no conflicts
