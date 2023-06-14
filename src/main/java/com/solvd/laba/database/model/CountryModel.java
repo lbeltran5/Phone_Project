@@ -24,4 +24,11 @@ public class CountryModel {
     public void setCountryName(String countryName) {
         this.countryName = countryName;
     }
+
+    @Override
+    public String toString() {
+            return "CountryModel{" +
+                    "countryName='" + countryName + '\'' +
+                    '}';
+    }
 }

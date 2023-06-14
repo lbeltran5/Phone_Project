@@ -25,4 +25,11 @@ public class OperatingSystemModel {
     public void setOperatingSysName(String operatingSysName) {
         this.operatingSysName = operatingSysName;
     }
+
+    @Override
+    public String toString() {
+        return "OperatingSystemModel{" +
+                "operatingSysName='" + operatingSysName + '\'' +
+                '}';
+    }
 }

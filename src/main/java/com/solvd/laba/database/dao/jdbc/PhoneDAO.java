@@ -25,21 +25,15 @@ public class PhoneDAO extends AbstractDAO implements DAO<PhoneModel> {
         List<PhoneModel> phones = new ArrayList<>();
 
         String query = "SELECT * FROM phone";
-        Connection connection = null;
-        try {
-            connection = ConnectionPool.getInstance().retrieve();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
+        try (Connection connection = ConnectionPool.getInstance().retrieve();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
             while (resultSet.next()) {
                 PhoneModel phone = mapResultSetToPhoneModel(resultSet);
                 phones.add(phone);
             }
         } catch (SQLException e) {
             LOGGER.error("Error occurred while retrieving brands: ", e);
-        } finally {
-            if (connection != null) {
-                ConnectionPool.getInstance().putback(connection);
-            }
         }
         return phones;
     }
@@ -47,23 +41,30 @@ public class PhoneDAO extends AbstractDAO implements DAO<PhoneModel> {
     @Override
     public void create(PhoneModel entity) throws SQLException {
         String query = "INSERT INTO phone (brand_id, os_id, phone_model, price) VALUES (?, ?, ?, ?);";
-        Connection connection = null;
-        try {
-            connection = ConnectionPool.getInstance().retrieve();
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, entity.getBrandId()); // Use a unique value or auto-incrementing value
+        try (Connection connection = ConnectionPool.getInstance().retrieve();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+            statement.setInt(1, entity.getBrandId());
             statement.setInt(2, entity.getOsId());
             statement.setString(3, entity.getPhoneModel());
             statement.setDouble(4, entity.getPrice());
             statement.executeUpdate();
+
+            // Retrieve the generated phone_id value
+            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    int generatedId = generatedKeys.getInt(1);
+                    entity.setPhoneId(generatedId); // Set the generated phone_id value in the PhoneModel object
+                } else {
+                    LOGGER.error("Failed to retrieve the generated phone_id value.");
+                    // Handle the failure case according to your application's requirements
+                }
+            }
         } catch (SQLException e) {
             LOGGER.error("Error occurred while creating a brand: ", e);
-        } finally {
-            if (connection != null) {
-                ConnectionPool.getInstance().putback(connection);
-            }
         }
     }
+
+
 
     @Override
     public void update(PhoneModel entity) throws SQLException {

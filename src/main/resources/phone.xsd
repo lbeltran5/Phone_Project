@@ -1,0 +1,87 @@
+<!-- phone.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="phone">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Brands">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Brand" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Id" type="xs:int"/>
+                                        <xs:element name="Name" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="Countries">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Country" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Id" type="xs:int"/>
+                                        <xs:element name="Name" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="OperatingSystems">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="OperatingSystem" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Id" type="xs:int"/>
+                                        <xs:element name="Name" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="Phones">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Phone" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Id" type="xs:int"/>
+                                        <xs:element name="Name" type="xs:string"/>
+                                        <xs:element name="BrandId" type="xs:int"/>
+                                        <xs:element name="CountryId" type="xs:int"/>
+                                        <xs:element name="OperatingSystemId" type="xs:int"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="UserAccounts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="UserAccount" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Id" type="xs:int"/>
+                                        <xs:element name="Username" type="xs:string"/>
+                                        <xs:element name="Password" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
