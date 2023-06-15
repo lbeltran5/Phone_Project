@@ -185,9 +185,9 @@ Create separate class with main() which will instantiate objects of implemented 
 
 | **Requirements**  | **Implementation** |
 | -- | ------------- |
-| Create one XML file and XSD schema for at least 5 classes from the below hierarchy | Added XML and XSD under Resources package with 5 classes from CRUD assignment |
-| Validate XML file using XSD schema and assigned parser | Implementation here |
-| Parse XML file using one of the parsers from the title | Implementation here |
+| Create one XML file and XSD schema for at least 5 classes from the below hierarchy | Added XML and XSD that contains 5 classes: Brands,Countries,OperatingSystem,Phones,and UserAccounts|
+| Validate XML file using XSD schema and assigned parser | Used validateXMLAgainstXSD, SchemaFactory, and the validator classes to perform the validation process |
+| Parse XML file using one of the parsers from the title | The ParserRunner clas parsers the XML file using the DocumentBuilder class. |
 
 </details>
 
@@ -205,6 +205,22 @@ Create separate class with main() which will instantiate objects of implemented 
 
 </details>
 
+<details>
+
+<summary>Home Task #16</summary>
+
+### Requirements for Home task #16
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Create one Json file for at least 5 classes from the hierarchy. | Implementation here |
+| Add Jackson’s annotation to the hierarchy. Date, List, and complex objects should be covered. | Implementation here |
+| Parse JSON using Jackson | Implementation here |
+
+</details>
+
 This is an attempt by Ella to make minor changes and perform a pull 
 request. Please make sure the changes are visible on your side, and merge 
 if no conflicts
+
+

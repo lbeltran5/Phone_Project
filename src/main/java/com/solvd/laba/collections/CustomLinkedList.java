@@ -9,6 +9,7 @@ package com.solvd.laba.collections;
 
 // Custom collection (LinkedList) w/generic type parameter T
 // which T can be any object type
+
 public class CustomLinkedList<T> {
     private Node<T> head;   // 'head' is a reference to the first node in the list
     private int size;   // 'size' keeps track off the number of nodes in the list
