@@ -1,3 +1,5 @@
+package com.solvd.laba;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -17,7 +19,7 @@ import javax.xml.validation.Validator;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class ParseRun {
+public class ParseRunTest {
     public static void main(String[] args) {
         // Loading the XML file
         InputStream xmlStream = ParserRunner.class.getClassLoader().getResourceAsStream("phone.xml");
@@ -58,17 +60,17 @@ public class ParseRun {
                 Node phoneNode = phoneList.item(i);
                 if (phoneNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element phoneElement = (Element) phoneNode;
-                    String id = phoneElement.getAttribute("Id");
+                    String id = phoneElement.getElementsByTagName("Id").item(0).getTextContent();
                     String name = phoneElement.getElementsByTagName("Name").item(0).getTextContent();
-                    String brandId = phoneElement.getElementsByTagName("BrandId").item(0).getTextContent();
-                    String countryId = phoneElement.getElementsByTagName("CountryId").item(0).getTextContent();
-                    String osId = phoneElement.getElementsByTagName("OperatingSystemId").item(0).getTextContent();
+                    String brandName = getXmlElementValueById(doc, "Brand", "Id", phoneElement.getElementsByTagName("BrandId").item(0).getTextContent(), "Name");
+                    String countryName = getXmlElementValueById(doc, "Country", "Id", phoneElement.getElementsByTagName("CountryId").item(0).getTextContent(), "Name");
+                    String osName = getXmlElementValueById(doc, "OperatingSystem", "Id", phoneElement.getElementsByTagName("OperatingSystemId").item(0).getTextContent(), "Name");
 
                     System.out.println("Phone ID: " + id);
                     System.out.println("Phone Name: " + name);
-                    System.out.println("Brand Name: " + brandId);
-                    System.out.println("Country ID: " + countryId);
-                    System.out.println("Operating System ID: " + osId);
+                    System.out.println("Brand Name: " + brandName);
+                    System.out.println("Country ID: " + countryName);
+                    System.out.println("Operating System ID: " + osName);
                     System.out.println("----------------------------");
                 }
             }
@@ -97,5 +99,19 @@ public class ParseRun {
         Validator validator = schema.newValidator();
         Source xmlSource = new StreamSource(xmlStream);
         validator.validate(xmlSource);
+    }
+
+    private static String getXmlElementValueById(Document doc, String elementName, String idElementName, String idValue, String valueElementName) {
+        NodeList nodeList = doc.getElementsByTagName(elementName);
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Element element = (Element) nodeList.item(i);
+            if (element.getElementsByTagName(idElementName).item(0).getTextContent().equals(idValue)) {
+                NodeList valueNodeList = element.getElementsByTagName(valueElementName);
+                if (valueNodeList.getLength() > 0) {
+                    return valueNodeList.item(0).getTextContent();
+                }
+            }
+        }
+        return "";
     }
 }

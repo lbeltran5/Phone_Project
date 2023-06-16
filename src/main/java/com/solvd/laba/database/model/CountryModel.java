@@ -1,7 +1,14 @@
 package com.solvd.laba.database.model;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name = "Country")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CountryModel {
+    @XmlElement(name = "Id")
     private int countryId;
+
+    @XmlElement(name = "Name")
     private String countryName;
 
     public CountryModel(int countryId, String countryName) {
@@ -9,6 +16,7 @@ public class CountryModel {
         this.countryName = countryName;
     }
 
+    // Getters and setters
     public int getCountryId() {
         return countryId;
     }
@@ -27,8 +35,9 @@ public class CountryModel {
 
     @Override
     public String toString() {
-            return "CountryModel{" +
-                    "countryName='" + countryName + '\'' +
-                    '}';
+        return "CountryModel{" +
+                "countryId=" + countryId +
+                ", countryName='" + countryName + '\'' +
+                '}';
     }
 }

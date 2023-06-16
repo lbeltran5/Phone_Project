@@ -1,7 +1,13 @@
 package com.solvd.laba.database.model;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name = "OperatingSystem")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class OperatingSystemModel {
+    @XmlElement(name = "Id")
     private int osId;
+    @XmlElement(name = "Name")
     private String operatingSysName;
 
     // Constructors, getters, and setters
@@ -29,7 +35,9 @@ public class OperatingSystemModel {
     @Override
     public String toString() {
         return "OperatingSystemModel{" +
-                "operatingSysName='" + operatingSysName + '\'' +
+                "osId=" + osId +
+                ", operatingSysName='" + operatingSysName + '\'' +
                 '}';
     }
 }
+

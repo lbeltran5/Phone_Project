@@ -127,6 +127,8 @@ public class BrandDAO extends AbstractDAO implements DAO<BrandModel> {
     private BrandModel extractBrandFromResultSet(ResultSet resultSet) throws SQLException {
         int brandId = resultSet.getInt("brand_id");
         String brandName = resultSet.getString("brand_name");
-        return new BrandModel(brandId, brandName);
+        Date creationDate = resultSet.getDate("creation_date"); // Assuming the column name is "creation_date"
+        return new BrandModel(brandId, brandName, creationDate);
     }
+
 }

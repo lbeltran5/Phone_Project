@@ -1,3 +1,5 @@
+package com.solvd.laba;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -56,17 +58,17 @@ public class ParserRunner {
                 Node phoneNode = phoneList.item(i);
                 if (phoneNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element phoneElement = (Element) phoneNode;
-                    String id = phoneElement.getAttribute("Id");
-                    String name = phoneElement.getElementsByTagName("Name").item(0).getTextContent();
-                    String brandId = phoneElement.getElementsByTagName("BrandId").item(0).getTextContent();
-                    String countryId = phoneElement.getElementsByTagName("CountryId").item(0).getTextContent();
-                    String osId = phoneElement.getElementsByTagName("OperatingSystemId").item(0).getTextContent();
+                    String id = phoneElement.getElementsByTagName("Id").item(0).getTextContent();
+                    String phoneName = phoneElement.getElementsByTagName("Name").item(0).getTextContent();
+                    String brandName = getXmlElementValueById(doc, "Brand", "Id", phoneElement.getElementsByTagName("BrandId").item(0).getTextContent(), "Name");
+                    String countryName = getXmlElementValueById(doc, "Country", "Id", phoneElement.getElementsByTagName("CountryId").item(0).getTextContent(), "Name");
+                    String osName = getXmlElementValueById(doc, "OperatingSystem", "Id", phoneElement.getElementsByTagName("OperatingSystemId").item(0).getTextContent(), "Name");
 
                     logger.info("Phone ID: " + id);
-                    logger.info("Phone Name: " + name);
-                    logger.info("Brand ID: " + brandId);
-                    logger.info("Country ID: " + countryId);
-                    logger.info("Operating System ID: " + osId);
+                    logger.info("Phone Name: " + phoneName);
+                    logger.info("Brand Name: " + brandName);
+                    logger.info("Country Origin: " + countryName);
+                    logger.info("Operating System: " + osName);
                     logger.info("----------------------------");
                 }
             }
@@ -88,6 +90,16 @@ public class ParserRunner {
         Source xmlSource = new StreamSource(xmlStream);
         validator.validate(xmlSource);
     }
+    private static String getXmlElementValueById(Document doc, String elementName, String idElementName, String idValue, String valueElementName) {
+        NodeList nodeList = doc.getElementsByTagName(elementName);
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Element element = (Element) nodeList.item(i);
+            if (element.getElementsByTagName(idElementName).item(0).getTextContent().equals(idValue)) {
+                return element.getElementsByTagName(valueElementName).item(0).getTextContent();
+            }
+        }
+        return "";
+    }
 
     private static void closeStream(InputStream stream) {
         if (stream != null) {
@@ -98,5 +110,4 @@ public class ParserRunner {
             }
         }
     }
-
 }

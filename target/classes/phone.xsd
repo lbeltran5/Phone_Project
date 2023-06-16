@@ -11,6 +11,7 @@
                                     <xs:sequence>
                                         <xs:element name="Id" type="xs:int"/>
                                         <xs:element name="Name" type="xs:string"/>
+                                        <xs:element name="Date" type="xs:date"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
@@ -59,6 +60,7 @@
                                         <xs:element name="BrandId" type="xs:int"/>
                                         <xs:element name="CountryId" type="xs:int"/>
                                         <xs:element name="OperatingSystemId" type="xs:int"/>
+                                        <xs:element name="Features" minOccurs="0" maxOccurs="unbounded"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>

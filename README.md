@@ -187,7 +187,7 @@ Create separate class with main() which will instantiate objects of implemented 
 | -- | ------------- |
 | Create one XML file and XSD schema for at least 5 classes from the below hierarchy | Added XML and XSD that contains 5 classes: Brands,Countries,OperatingSystem,Phones,and UserAccounts|
 | Validate XML file using XSD schema and assigned parser | Used validateXMLAgainstXSD, SchemaFactory, and the validator classes to perform the validation process |
-| Parse XML file using one of the parsers from the title | The ParserRunner clas parsers the XML file using the DocumentBuilder class. |
+| Parse XML file using one of the parsers from the title | The com.solvd.laba.ParserRunner clas parsers the XML file using the DocumentBuilder class. |
 
 </details>
 

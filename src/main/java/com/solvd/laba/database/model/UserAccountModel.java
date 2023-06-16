@@ -1,9 +1,20 @@
 package com.solvd.laba.database.model;
+/*
+import javax.xml.bind.annotation.*;
 
+@XmlRootElement(name = "UserAccount")
+@XmlAccessorType(XmlAccessType.FIELD)*/
 public class UserAccountModel {
+   // @XmlElement(name = "Id")
     private int userId;
+
+    //@XmlElement(name = "Name")
     private String userName;
+
+    //@XmlElement(name = "Email")
     private String userEmail;
+
+    //@XmlElement(name = "Comment")
     private String userComment;
 
     public UserAccountModel(int userId, String userName, String userEmail, String userComment) {
@@ -13,6 +24,7 @@ public class UserAccountModel {
         this.userComment = userComment;
     }
 
+    // Getters and setters
     public int getUserId() {
         return userId;
     }

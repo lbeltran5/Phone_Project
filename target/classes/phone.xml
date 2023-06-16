@@ -4,14 +4,17 @@
         <Brand>
             <Id>1</Id>
             <Name>Samsung</Name>
+            <Date>1938-03-01</Date>
         </Brand>
         <Brand>
             <Id>2</Id>
             <Name>Apple</Name>
+            <Date>1976-04-01</Date>
         </Brand>
         <Brand>
             <Id>3</Id>
             <Name>Xiaomi</Name>
+            <Date>2010-04-06</Date>
         </Brand>
     </Brands>
 
@@ -52,6 +55,11 @@
             <BrandId>1</BrandId>
             <CountryId>1</CountryId>
             <OperatingSystemId>1</OperatingSystemId>
+            <Features>
+                <Feature>Video call effects</Feature>
+                <Feature>Advance biometric protection</Feature>
+                <Feature>Long-lasting battery and power sharing</Feature>
+            </Features>
         </Phone>
         <Phone>
             <Id>2</Id>
@@ -59,6 +67,11 @@
             <BrandId>2</BrandId>
             <CountryId>2</CountryId>
             <OperatingSystemId>2</OperatingSystemId>
+            <Features>
+                <Feature>Face ID feature</Feature>
+                <Feature>Water resistant</Feature>
+                <Feature>Emergency SOS</Feature>
+            </Features>
         </Phone>
         <Phone>
             <Id>3</Id>
@@ -66,6 +79,11 @@
             <BrandId>3</BrandId>
             <CountryId>3</CountryId>
             <OperatingSystemId>3</OperatingSystemId>
+            <Features>
+                <Feature>thin and light screen</Feature>
+                <Feature>Hardware quality</Feature>
+                <Feature>High-performance software</Feature>
+            </Features>
         </Phone>
     </Phones>
 
