@@ -200,8 +200,8 @@ Create separate class with main() which will instantiate objects of implemented 
 
 | **Requirements**  | **Implementation** |
 | -- | ------------- |
-| Add JAXB annotations to the hierarchy. Date, List, and complex objects should be covered | Implementation here |
-| Parse XML using JAXB | Implementation here |
+| Add JAXB annotations to the hierarchy. Date, List, and complex objects should be covered | Added JAXB annotations to the model hierarchy date is being handle by Brand Model as Phone Brand Foundation Date and list is handle by Phone Model for Phone Features every other complex objects is from other classes |
+| Parse XML using JAXB | The JAXBParserRunner class uses the JAXBContext class to create a JAXB context for the PhoneData class: JAXBContext and other methods such as unmarshall; Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();|
 
 </details>
 
@@ -216,6 +216,19 @@ Create separate class with main() which will instantiate objects of implemented 
 | Create one Json file for at least 5 classes from the hierarchy. | Implementation here |
 | Add Jackson’s annotation to the hierarchy. Date, List, and complex objects should be covered. | Implementation here |
 | Parse JSON using Jackson | Implementation here |
+
+</details>
+
+<details>
+
+<summary>Home Task #17</summary>
+
+### Requirements for Home task #17
+
+| **Requirements**  | **Implementation** |
+| -- | ------------- |
+| Add MyBatis DAOs to the existing hierarchy with the same requirements. Choose any XML or interface mapping. | Implementation here |
+| Switch service classes to MyBatis. | Implementation here |
 
 </details>
 
