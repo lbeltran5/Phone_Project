@@ -213,9 +213,9 @@ Create separate class with main() which will instantiate objects of implemented 
 
 | **Requirements**  | **Implementation** |
 | -- | ------------- |
-| Create one Json file for at least 5 classes from the hierarchy. | Implementation here |
-| Add Jackson’s annotation to the hierarchy. Date, List, and complex objects should be covered. | Implementation here |
-| Parse JSON using Jackson | Implementation here |
+| Create one Json file for at least 5 classes from the hierarchy. | phone.json file is under resources with 5 classes: Brand, Country, OperatingSystem, Phone, User Accounts |
+| Add Jackson’s annotation to the hierarchy. Date, List, and complex objects should be covered. | Model classes have Jackson's annotation in the hierarchy. Brand covers dates, Phone covers list by phone features |
+| Parse JSON using Jackson | JSONParserRunner parse the JSON file by using Jackson by using object mapper |
 
 </details>
 
