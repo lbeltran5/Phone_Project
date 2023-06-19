@@ -1,29 +1,34 @@
 package com.solvd.laba.jaxb;
 
+import com.fasterxml.jackson.annotation.*;
 import com.solvd.laba.database.model.*;
 
 
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
 import java.util.List;
 
+@JsonRootName("phone")
 @XmlRootElement(name = "phone")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class PhoneData {
     @XmlElementWrapper(name = "Brands")
     @XmlElement(name = "Brand")
+    @JsonProperty("Brands")
     private List<BrandModel> brands;
 
     @XmlElementWrapper(name = "Countries")
     @XmlElement(name = "Country")
+    @JsonProperty("Countries")
     private List<CountryModel> countries;
 
     @XmlElementWrapper(name = "OperatingSystems")
     @XmlElement(name = "OperatingSystem")
+    @JsonProperty("OperatingSystems")
     private List<OperatingSystemModel> operatingSystems;
 
     @XmlElementWrapper(name = "Phones")
     @XmlElement(name = "Phone")
+    @JsonProperty("Phones")
     private List<PhoneModel> phones;
 
 

@@ -15,11 +15,33 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.logging.*;
 
 public class ParseRunTest {
+    private static final Logger logger = Logger.getLogger(ParseRunTest.class.getName());
+
+    static {
+        // Disable default logging configuration
+        LogManager.getLogManager().reset();
+
+        // Create a custom log formatter without timestamp
+        Formatter logFormatter = new Formatter() {
+            @Override
+            public String format(LogRecord record) {
+                return record.getMessage() + System.lineSeparator();
+            }
+        };
+
+        // Create console handler and set custom formatter
+        Handler consoleHandler = new ConsoleHandler();
+        consoleHandler.setFormatter(logFormatter);
+
+        // Add console handler to the logger
+        logger.addHandler(consoleHandler);
+    }
+
     public static void main(String[] args) {
         // Loading the XML file
         InputStream xmlStream = ParserRunner.class.getClassLoader().getResourceAsStream("phone.xml");
@@ -37,14 +59,10 @@ public class ParseRunTest {
             // Validate XML against XSD
             validateXMLAgainstXSD(xmlStream, xsdStream);
 
-            // Close the input streams used for XML validation
-            xmlStream.close();
-            xsdStream.close();
-
-            // Create new input streams for parsing the XML document
+            // Reset the XML stream back to the beginning
             xmlStream = ParserRunner.class.getClassLoader().getResourceAsStream("phone.xml");
             if (xmlStream == null) {
-                throw new RuntimeException("Failed to load XML file for parsing.");
+                throw new RuntimeException("Failed to load XML file.");
             }
 
             // Parsing the XML document
@@ -61,33 +79,25 @@ public class ParseRunTest {
                 if (phoneNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element phoneElement = (Element) phoneNode;
                     String id = phoneElement.getElementsByTagName("Id").item(0).getTextContent();
-                    String name = phoneElement.getElementsByTagName("Name").item(0).getTextContent();
+                    String phoneName = phoneElement.getElementsByTagName("Name").item(0).getTextContent();
                     String brandName = getXmlElementValueById(doc, "Brand", "Id", phoneElement.getElementsByTagName("BrandId").item(0).getTextContent(), "Name");
                     String countryName = getXmlElementValueById(doc, "Country", "Id", phoneElement.getElementsByTagName("CountryId").item(0).getTextContent(), "Name");
                     String osName = getXmlElementValueById(doc, "OperatingSystem", "Id", phoneElement.getElementsByTagName("OperatingSystemId").item(0).getTextContent(), "Name");
 
-                    System.out.println("Phone ID: " + id);
-                    System.out.println("Phone Name: " + name);
-                    System.out.println("Brand Name: " + brandName);
-                    System.out.println("Country ID: " + countryName);
-                    System.out.println("Operating System ID: " + osName);
-                    System.out.println("----------------------------");
+                    logger.info("Phone ID: " + id);
+                    logger.info("Phone Name: " + phoneName);
+                    logger.info("Brand Name: " + brandName);
+                    logger.info("Country Origin: " + countryName);
+                    logger.info("Operating System: " + osName);
+                    logger.info("----------------------------");
                 }
             }
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         } finally {
-            // Close the input streams
-            try {
-                if (xmlStream != null) {
-                    xmlStream.close();
-                }
-                if (xsdStream != null) {
-                    xsdStream.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+// Close the input streams
+            closeStream(xmlStream);
+            closeStream(xsdStream);
         }
     }
 
@@ -106,12 +116,19 @@ public class ParseRunTest {
         for (int i = 0; i < nodeList.getLength(); i++) {
             Element element = (Element) nodeList.item(i);
             if (element.getElementsByTagName(idElementName).item(0).getTextContent().equals(idValue)) {
-                NodeList valueNodeList = element.getElementsByTagName(valueElementName);
-                if (valueNodeList.getLength() > 0) {
-                    return valueNodeList.item(0).getTextContent();
-                }
+                return element.getElementsByTagName(valueElementName).item(0).getTextContent();
             }
         }
         return "";
+    }
+
+    private static void closeStream(InputStream stream) {
+        if (stream != null) {
+            try {
+                stream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

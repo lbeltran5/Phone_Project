@@ -1,0 +1,82 @@
+{
+  "Brands": [
+    {
+      "brandId": 1,
+      "brandName": "Samsung",
+      "brandFoundationDate": "1938-03-01"
+    },
+    {
+      "brandId": 2,
+      "brandName": "Apple",
+      "brandFoundationDate": "1976-04-01"
+    },
+    {
+      "brandId": 3,
+      "brandName": "Xiaomi",
+      "brandFoundationDate": "2010-04-06"
+    }
+  ],
+  "Countries": [
+    {
+      "countryId": 1,
+      "countryName": "South Korea"
+    },
+    {
+      "countryId": 2,
+      "countryName": "United States"
+    },
+    {
+      "countryId": 3,
+      "countryName": "China"
+    }
+  ],
+  "OperatingSystems": [
+    {
+      "osId": 1,
+      "osName": "Android 13"
+    },
+    {
+      "osId": 2,
+      "osName": "iOS 16"
+    },
+    {
+      "osId": 3,
+      "osName": "Android 13"
+    }
+  ],
+  "Phones": [
+    {
+      "phoneId": 1,
+      "phoneName": "Galaxy S23 Ultra",
+      "brandId": 1,
+      "osId": 1,
+      "features": [
+        "Video call effects",
+        "Advance biometric protection",
+        "Long-lasting battery and power sharing"
+      ]
+    },
+    {
+      "phoneId": 2,
+      "phoneName": "iPhone 14 Pro Max",
+      "brandId": 2,
+      "osId": 2,
+      "features": [
+        "Face ID feature",
+        "Water resistant",
+        "Emergency SOS"
+      ]
+    },
+    {
+      "phoneId": 3,
+      "phoneName": "Xiaomi 13 Ultra",
+      "brandId": 3,
+      "osId": 3,
+      "features": [
+        "thin and light screen",
+        "Hardware quality",
+        "High-performance software"
+      ]
+    }
+  ]
+}

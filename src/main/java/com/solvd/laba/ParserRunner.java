@@ -1,3 +1,5 @@
+// USING LOGGER FORMAT FOR XML FORMAT OUTPUT
+
 package com.solvd.laba;
 
 import org.w3c.dom.Document;
@@ -11,16 +13,68 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.logging.Logger;
+import java.io.StringWriter;
+import java.util.logging.*;
 
 public class ParserRunner {
     private static final Logger logger = Logger.getLogger(ParserRunner.class.getName());
+
+    static {
+        // Disable default logging configuration
+        LogManager.getLogManager().reset();
+
+        // Create a custom log formatter for XML format
+        Formatter logFormatter = new Formatter() {
+            @Override
+            public String format(LogRecord record) {
+                try {
+                    DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+                    DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+                    Document doc = docBuilder.newDocument();
+
+                    Element logElement = doc.createElement("Log");
+                    doc.appendChild(logElement);
+
+                    Element messageElement = doc.createElement("Message");
+                    messageElement.appendChild(doc.createTextNode(record.getMessage()));
+                    logElement.appendChild(messageElement);
+
+                    Element levelElement = doc.createElement("Level");
+                    levelElement.appendChild(doc.createTextNode(record.getLevel().getName()));
+                    logElement.appendChild(levelElement);
+
+                    Element timestampElement = doc.createElement("Timestamp");
+                    timestampElement.appendChild(doc.createTextNode(String.valueOf(record.getMillis())));
+                    logElement.appendChild(timestampElement);
+
+                    StringWriter writer = new StringWriter();
+                    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                    Transformer transformer = transformerFactory.newTransformer();
+                    transformer.transform(new DOMSource(doc), new StreamResult(writer));
+                    return writer.getBuffer().toString();
+                } catch (Exception e) {
+                    return "An error occurred while formatting the log record.";
+                }
+            }
+        };
+
+        // Create console handler and set custom formatter
+        Handler consoleHandler = new ConsoleHandler();
+        consoleHandler.setFormatter(logFormatter);
+
+        // Add console handler to the logger
+        logger.addHandler(consoleHandler);
+    }
 
     public static void main(String[] args) {
         // Loading the XML file
@@ -90,6 +144,7 @@ public class ParserRunner {
         Source xmlSource = new StreamSource(xmlStream);
         validator.validate(xmlSource);
     }
+
     private static String getXmlElementValueById(Document doc, String elementName, String idElementName, String idValue, String valueElementName) {
         NodeList nodeList = doc.getElementsByTagName(elementName);
         for (int i = 0; i < nodeList.getLength(); i++) {

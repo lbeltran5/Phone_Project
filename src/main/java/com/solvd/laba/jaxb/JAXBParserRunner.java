@@ -7,11 +7,32 @@ import java.io.File;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class JAXBParserRunner {
     private static final Logger LOGGER = Logger.getLogger(JAXBParserRunner.class.getName());
+
+    //LOGGER format with time stamp
+    static {
+        LogManager.getLogManager().reset();
+        LOGGER.setLevel(Level.INFO);
+
+        ConsoleHandler handler = new ConsoleHandler();
+        handler.setFormatter(new SimpleFormatter() {
+            private static final String format = "[%1$tF %1$tT] [%2$-7s] %3$s %n";
+
+            @Override
+            public synchronized String format(LogRecord lr) {
+                return String.format(format,
+                        new Date(lr.getMillis()),
+                        lr.getLevel().getLocalizedName(),
+                        lr.getMessage()
+                );
+            }
+        });
+
+        LOGGER.addHandler(handler);
+    }
 
     public static void main(String[] args) {
         URL resourceUrl = JAXBParserRunner.class.getClassLoader().getResource("phone.xml");
@@ -43,13 +64,15 @@ public class JAXBParserRunner {
                     String osName = os.getOperatingSysName();
 
                     // Log the extracted information
-                    LOGGER.log(Level.INFO, "Phone ID: {0}", phoneId);
-                    LOGGER.log(Level.INFO, "Brand Name: {0}", brandName);
-                    LOGGER.log(Level.INFO, "Phone Model: {0}", phoneModel);
-                    LOGGER.log(Level.INFO, "Operating System Name: {0}", osName);
-                    LOGGER.log(Level.INFO, "Features: {0}", features);
-                    LOGGER.log(Level.INFO, "Brand Foundation Date: {0}", brandDate);
+                    LOGGER.log(Level.INFO, "Phone ID: " + phoneId);
+                    LOGGER.log(Level.INFO, "Brand Name: " + brandName);
+                    LOGGER.log(Level.INFO, "Phone Model: " + phoneModel);
+                    LOGGER.log(Level.INFO, "Operating System Name: " + osName);
+                    LOGGER.log(Level.INFO, "Features: " + features);
+                    LOGGER.log(Level.INFO, "Brand Foundation Date: " + brandDate);
                     LOGGER.log(Level.INFO, "------------------------------------------------");
+
+
                 }
             }
         } else {
